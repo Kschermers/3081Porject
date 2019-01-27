@@ -1,6 +1,6 @@
 ### Feedback for Lab 01
 
-Run on January 27, 12:08:31 PM.
+Run on January 27, 12:19:16 PM.
 
 
 #### Necessary Files and Structure
@@ -14,37 +14,25 @@ Run on January 27, 12:08:31 PM.
 
 ### Essential Files Exist
 
-+ Fail: Check that file "makefile" exists.
++ Pass: Check that file "makefile" exists.
 
-     "makefile" not found.
-
-+ Skip: Check that file "main.cc" exists.
-
-  This test was not run because of an earlier failing test.
++ Pass: Check that file "main.cc" exists.
 
 
 ### .gitignore set up properly
 
-+ Skip: Check that file/directory "private.pvt" does not exist.
++ Pass: Check that file/directory "private.pvt" does not exist.
 
-  This test was not run because of an earlier failing test.
++ Pass: Check that no files with extension ".o" exist in directory "."
 
-+ Skip: Check that no files with extension ".o" exist in directory "."
++ Pass: Check that no files with extension ".out" exist in directory "."
 
-  This test was not run because of an earlier failing test.
-
-+ Skip: Check that no files with extension ".out" exist in directory "."
-
-  This test was not run because of an earlier failing test.
-
-+ Skip: Check that file "shared.md" exists.
-
-  This test was not run because of an earlier failing test.
++ Pass: Check that file "shared.md" exists.
 
 
 ### Test that code compiles and creates the exectuable
 
-+ Skip: Check that make compiles.
++ Pass: Check that make compiles.
 
-  This test was not run because of an earlier failing test.
+
 
