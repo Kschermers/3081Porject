@@ -1,6 +1,6 @@
 ### Feedback for Lab 01
 
-Run on January 27, 15:29:25 PM.
+Run on January 27, 15:30:16 PM.
 
 
 #### Necessary Files and Structure
@@ -25,18 +25,14 @@ Run on January 27, 15:29:25 PM.
 
 + Pass: Check that no files with extension ".o" exist in directory "."
 
-+ Fail: Check that no files with extension ".out" exist in directory "."
++ Pass: Check that no files with extension ".out" exist in directory "."
 
- "lab01.out" found
-
-+ Skip: Check that file "shared.md" exists.
-
-  This test was not run because of an earlier failing test.
++ Pass: Check that file "shared.md" exists.
 
 
 ### Test that code compiles and creates the exectuable
 
-+ Skip: Check that make compiles.
++ Pass: Check that make compiles.
 
-  This test was not run because of an earlier failing test.
+
 
