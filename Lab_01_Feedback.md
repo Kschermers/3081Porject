@@ -1,38 +1,56 @@
 ### Feedback for Lab 01
 
-Run on January 27, 12:19:16 PM.
+Run on January 27, 12:35:22 PM.
 
 
 #### Necessary Files and Structure
 
-+ Pass: Check that directory "labs" exists.
++ Fail: Check that directory "labs" exists.
 
-+ Pass: Check that directory "labs/lab01_git_basics" exists.
+     "labs" not found.
 
-+ Pass: Change into directory "labs/lab01_git_basics".
++ Skip: Check that directory "labs/lab01_git_basics" exists.
+
+  This test was not run because of an earlier failing test.
+
++ Skip: Change into directory "labs/lab01_git_basics".
+
+  This test was not run because of an earlier failing test.
 
 
 ### Essential Files Exist
 
-+ Pass: Check that file "makefile" exists.
++ Skip: Check that file "makefile" exists.
 
-+ Pass: Check that file "main.cc" exists.
+  This test was not run because of an earlier failing test.
+
++ Skip: Check that file "main.cc" exists.
+
+  This test was not run because of an earlier failing test.
 
 
 ### .gitignore set up properly
 
-+ Pass: Check that file/directory "private.pvt" does not exist.
++ Skip: Check that file/directory "private.pvt" does not exist.
 
-+ Pass: Check that no files with extension ".o" exist in directory "."
+  This test was not run because of an earlier failing test.
 
-+ Pass: Check that no files with extension ".out" exist in directory "."
++ Skip: Check that no files with extension ".o" exist in directory "."
 
-+ Pass: Check that file "shared.md" exists.
+  This test was not run because of an earlier failing test.
+
++ Skip: Check that no files with extension ".out" exist in directory "."
+
+  This test was not run because of an earlier failing test.
+
++ Skip: Check that file "shared.md" exists.
+
+  This test was not run because of an earlier failing test.
 
 
 ### Test that code compiles and creates the exectuable
 
-+ Pass: Check that make compiles.
++ Skip: Check that make compiles.
 
-
+  This test was not run because of an earlier failing test.
 
