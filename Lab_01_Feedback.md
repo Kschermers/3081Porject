@@ -1,6 +1,6 @@
 ### Feedback for Lab 01
 
-Run on January 27, 15:19:15 PM.
+Run on January 27, 15:21:56 PM.
 
 
 #### Necessary Files and Structure
@@ -21,15 +21,21 @@ Run on January 27, 15:19:15 PM.
 
 ### .gitignore set up properly
 
-+ Pass: Check that file/directory "private.pvt" does not exist.
++ Fail: Check that file/directory "private.pvt" does not exist.
 
-+ Pass: Check that no files with extension ".o" exist in directory "."
+     "private.pvt" found.
 
-+ Pass: Check that no files with extension ".out" exist in directory "."
++ Skip: Check that no files with extension ".o" exist in directory "."
 
-+ Fail: Check that file "shared.md" exists.
+  This test was not run because of an earlier failing test.
 
-     "shared.md" not found.
++ Skip: Check that no files with extension ".out" exist in directory "."
+
+  This test was not run because of an earlier failing test.
+
++ Skip: Check that file "shared.md" exists.
+
+  This test was not run because of an earlier failing test.
 
 
 ### Test that code compiles and creates the exectuable
