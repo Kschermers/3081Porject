@@ -1,28 +1,22 @@
 ### Feedback for Lab 02
 
-Run on January 27, 12:35:25 PM.
+Run on January 27, 12:48:27 PM.
 
 
 #### Necessary Files and Structure
 
-+ Fail: Check that directory "labs" exists.
++ Pass: Check that directory "labs" exists.
 
-     "labs" not found.
++ Pass: Check that directory "labs/lab02_build_process" exists.
 
-+ Skip: Check that directory "labs/lab02_build_process" exists.
-
-  This test was not run because of an earlier failing test.
-
-+ Skip: Change into directory "labs/lab02_build_process".
-
-  This test was not run because of an earlier failing test.
++ Pass: Change into directory "labs/lab02_build_process".
 
 
 ### Essential Files Exist
 
-+ Skip: Check that file "Makefile" exists.
++ Fail: Check that file "Makefile" exists.
 
-  This test was not run because of an earlier failing test.
+     "Makefile" not found.
 
 + Skip: Check that file ".gitignore" exists.
 
