@@ -1,17 +1,15 @@
 ### Feedback for Lab 01
 
-Run on January 27, 12:35:22 PM.
+Run on January 27, 12:48:31 PM.
 
 
 #### Necessary Files and Structure
 
-+ Fail: Check that directory "labs" exists.
++ Pass: Check that directory "labs" exists.
 
-     "labs" not found.
++ Fail: Check that directory "labs/lab01_git_basics" exists.
 
-+ Skip: Check that directory "labs/lab01_git_basics" exists.
-
-  This test was not run because of an earlier failing test.
+     "labs/lab01_git_basics" not found.
 
 + Skip: Change into directory "labs/lab01_git_basics".
 
