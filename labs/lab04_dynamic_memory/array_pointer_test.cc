@@ -22,15 +22,23 @@ ArrayPointerTest::ArrayPointerTest(int count) {
 
   cout << "Initializing ducks1." << endl;
   // Write code here to create count_ ducks for array ducks1 (if required)
+    ducks1_ = new Duck[kMaxDuckCount];
+    for (int i =0; i < count_; i ++) {
+        Duck d;
+        ducks1_[1] = d;
+    }
 
   cout << "Initializing ducks2\n" ;
   // Write code here to create count_ ducks for array ducks2 (if required)
-
+    //ducks2_ = (Duck *) malloc(count_ * sizeof(Duck));
+    
   cout << "Initializing ducks3\n";
   // Write code here to create count_ ducks for array ducks3 (if required)
-
+    //ducks3_ = (Duck *) malloc(count_ * sizeof(Duck));
+    
   cout << "Initializing ducks4\n";
   // Write code here to create count_ ducks for array ducks4 (if required)
+    //ducks4_ = (Duck *) malloc(count_ * sizeof(Duck));
 }
 
 void ArrayPointerTest::NameTheDucks(int array_number) {
