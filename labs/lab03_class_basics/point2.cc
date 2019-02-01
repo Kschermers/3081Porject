@@ -17,7 +17,7 @@ Point2::Point2() {
     this -> y = 0;
 }
 
-Point2::Point2(int a, int b) {
+Point2::Point2(double a, double b) {
     this -> x = a;
     this -> y = b;
 }

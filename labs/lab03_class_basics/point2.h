@@ -14,7 +14,7 @@ private:
     float x, y;
 public:
     Point2();
-    Point2(int x, int y);
+    Point2(double x, double y);
     float DistanceBetween(Point2);
     int Quadrant();
     void Print();

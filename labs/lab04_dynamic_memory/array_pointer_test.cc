@@ -22,23 +22,29 @@ ArrayPointerTest::ArrayPointerTest(int count) {
 
   cout << "Initializing ducks1." << endl;
   // Write code here to create count_ ducks for array ducks1 (if required)
-    ducks1_ = new Duck[kMaxDuckCount];
     for (int i =0; i < count_; i ++) {
         Duck d;
-        ducks1_[1] = d;
+        ducks1_[i] = d;
     }
 
   cout << "Initializing ducks2\n" ;
   // Write code here to create count_ ducks for array ducks2 (if required)
-    //ducks2_ = (Duck *) malloc(count_ * sizeof(Duck));
+    ducks2_ = new Duck[kMaxDuckCount];
     
   cout << "Initializing ducks3\n";
   // Write code here to create count_ ducks for array ducks3 (if required)
-    //ducks3_ = (Duck *) malloc(count_ * sizeof(Duck));
+    for (int i =0; i < count_; i ++) {
+        Duck * d = new Duck();
+        ducks3_[i] = d;
+    }
     
   cout << "Initializing ducks4\n";
   // Write code here to create count_ ducks for array ducks4 (if required)
-    //ducks4_ = (Duck *) malloc(count_ * sizeof(Duck));
+    ducks4_ = new Duck*[kMaxDuckCount]; //delete []
+    for (int i =0; i < count_; i ++) {
+        Duck * d = new Duck(); //delete
+        ducks4_[i] = d;
+    }
 }
 
 void ArrayPointerTest::NameTheDucks(int array_number) {
@@ -59,16 +65,29 @@ void ArrayPointerTest::NameTheDucks(int array_number) {
     case 2:
       cout << "Naming ducks2\n";
       // Write code here to name count_ ducks in ducks2 and set array_number_.
+      for (int i = 0; i < count_; i++) {
+        ducks2_[i].set_name(names[i+count_]);
+        ducks2_[i].set_number(2);
+      }
       break;
 
     case 3:
       cout << "Naming ducks3\n";
       // Write code here to name count_ ducks in ducks3 and set array_number_.
+    
+      for (int i = 0; i < count_; i++) {
+          ducks3_[i] -> set_name(names[i + (count_*2)]);
+          ducks3_[i] -> set_number(3);
+      }
       break;
 
     case 4:
       cout << "Naming ducks4\n";
       // Write code here to name count_ ducks in ducks4 and set array_number_.
+          for (int i = 0; i < count_; i++) {
+              ducks4_[i] -> set_name(names[i + (count_*3)]);
+              ducks4_[i] -> set_number(4);
+          }
       break;
 
     default:
@@ -91,12 +110,20 @@ ArrayPointerTest::~ArrayPointerTest() {
 
   cout << "Deleting ducks2\n";
   // Write code here to delete the ducks of ducks2_ (if required)
+    delete[] ducks2_;
 
   cout << "Deleting ducks3\n";
   // Write code here to delete the ducks of ducks2_ (if required)
+    for (int i = 0; i < count_; i++) {
+        delete ducks3_[i];
+    }
 
   cout << "Deleting ducks4\n";
   // Write code here to delete the ducks of ducks2_ (if required)
+    for (int i = 0; i < count_; i++) {
+        delete ducks4_[i];
+    }
+    delete [] ducks4_;
 }
 
 
@@ -107,12 +134,12 @@ void ArrayPointerTest::DisplayContents() {
   for (int i=0; i<count_; i++) {
     ducks1_[i].PerformQuack();
   }
-  /*
+  
   cout << "ducks2" << endl;
   for (int i=0; i<count_; i++) {
     ducks2_[i].PerformQuack();
   }
-
+    
   cout << "ducks3" << endl;
   for (int i=0; i<count_; i++) {
     ducks3_[i]->PerformQuack();
@@ -122,5 +149,5 @@ void ArrayPointerTest::DisplayContents() {
   for (int i=0; i<count_; i++) {
     ducks4_[i]->PerformQuack();
   }
-  */
+  
 }
