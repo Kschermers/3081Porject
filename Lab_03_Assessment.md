@@ -2,7 +2,7 @@
 
 #### Total score: _100.0_ / _100.0_
 
-Run on February 05, 18:39:59 PM.
+Run on February 05, 19:04:59 PM.
 
 
 #### Necessary Files and Structure
@@ -48,10 +48,15 @@ Run on February 05, 18:39:59 PM.
 
 +  _5_ / _5_ : Pass: Check that file "point2.o" exists.
 
+
+#### Test the correctness of the code using unit tests
+
 + Pass: Check that make compiles for Makefile:Makefile.test.
 
     make successful.
     Check point2_unittest exists...OK: result point2_unittest found
+
++ Pass: Check that file "point2_unittest" exists.
 
 +  _10_ / _10_ : Pass: Check that a GoogleTest test passes.
     passes the test: Point2Test.DistBtwnBothPositive.
