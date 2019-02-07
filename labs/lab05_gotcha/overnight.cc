@@ -11,7 +11,7 @@
 #include "overnight.h"
 
 Overnight::Overnight(std::string package) : Delivery(package) {
-  std::cout << "Creating an overnight." << std::endl;
+  std::cout << "Creating an overnight." << std::endl;
   // IncrementCount();
   set_days(1);
 }
