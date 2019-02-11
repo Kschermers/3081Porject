@@ -152,7 +152,7 @@ TEST_F(DateTest, EpochTest) {
 TEST_F(DateTest, TodayTest) {
  
     Date today;
-    std::string todayMatch = "2019-02-10";
+    std::string todayMatch = "2019-02-11";
     
     EXPECT_EQ(today.GetDate(),todayMatch) << "Today's Date not calculated properly";
     
