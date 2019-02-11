@@ -1,6 +1,6 @@
 ### Feedback for Lab 06
 
-Run on February 11, 03:35:41 AM.
+Run on February 11, 08:25:08 AM.
 
 
 #### System Files and Lab Directory Structure
@@ -87,16 +87,8 @@ Run on February 11, 03:35:41 AM.
 
 
 
-+ Fail: Check that a GoogleTest test passes.
-    fails the test: DateTest.TodayTest.
-<pre>
-[ RUN      ] DateTest.TodayTest
-./date_unittest.cc:157: Failure
-      Expected: today.GetDate()
-      Which is: "2019-02-11"
-To be equal to: todayMatch
-      Which is: "2019-02-10"
-Today's Date not calculated properly</pre>
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.TodayTest.
 
 
 
@@ -115,7 +107,7 @@ Today's Date not calculated properly</pre>
 
 
 
-+ Fail: 91.67% of the tests passed, but the target is 100%.
++ Pass: 100% of the tests passed.
 
 
 ### Testing Mutants
@@ -123,63 +115,45 @@ Today's Date not calculated properly</pre>
 
 #### Testing Mutant 1 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 1
 
 
 #### Testing Mutant 2 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 2
 
 
 #### Testing Mutant 3 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 3
 
 
 #### Testing Mutant 4 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 4
 
 
 #### Testing Mutant 5 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 5
 
 
 #### Testing Mutant 6 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 6
 
 
 #### Testing Mutant 7 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 7
 
 
 #### Testing Mutant 8 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 8
 
 
 #### Testing Mutant 9 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 9
 
