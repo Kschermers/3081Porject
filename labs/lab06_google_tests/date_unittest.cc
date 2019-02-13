@@ -149,13 +149,35 @@ TEST_F(DateTest, EpochTest) {
     EXPECT_EQ(epoch.GetDate(), epochMatch.GetDate()) << "Epoch not calculated properly";
 }
 
-TEST_F(DateTest, TodayTest) {
- 
+TEST_F(DateTest, Today){
+    
+    std::time_t t = std::time(0);
+    std::tm* now = std::localtime(&t);
+    
+    int yyyy_ = now->tm_year + 1900;
+    int mm_ = now->tm_mon + 1;
+    int dd_ = now->tm_mday;
+    char numstr[5];
+    
+    std::string date = "";
+    sprintf(numstr, "%d", yyyy_);
+    date = date + numstr + "-";
+    if (mm_ < 10) {
+        date = date + "0";
+    }
+    
+    sprintf(numstr, "%d", mm_);
+    date = date + numstr + "-";
+    
+    if (dd_ < 10) {
+        date = date + "0";
+    }
+    sprintf(numstr, "%d", dd_);
+    date = date + numstr;
+    
     Date today;
-    std::string todayMatch = "2019-02-11";
     
-    EXPECT_EQ(today.GetDate(),todayMatch) << "Today's Date not calculated properly";
-    
+    EXPECT_EQ(today.GetDate(), date) << "Today is not right";
 }
 
 TEST_F(DateTest, GetUsDateTest) {
@@ -201,6 +223,43 @@ TEST_F(DateTest, PrintUsDateTest) {
     
     EXPECT_EQ(output1, dateWithZeroes) << "PrintUSDate not formatted correctly; removes leading zeroes";
     EXPECT_EQ(output2, dateWithZeroes) << "Dates do not recieve leading zeroes on PrintUsDate";
+}
+
+TEST_F(DateTest, FirstDateTest) {
+    
+    Date first(0000,01,01);
+    
+    std::string beforeFirst = "-1-12-31";
+    
+    first = first - 1;
+    
+    EXPECT_EQ(first.GetDate(), beforeFirst) << "Dates don't zero out correctly";
+}
+
+TEST_F(DateTest, LastDateTest) {
+    
+    Date last(9999,12,31);
+    
+    std::string afterLast = "10000-01-01";
+    
+    last = last + 1;
+    
+    EXPECT_EQ(last.GetDate(),afterLast) << "Dates dont increase to 5 value years correctly";
+}
+
+TEST_F(DateTest, LeapYearTest) {
+    
+    Date isLeap(2020,02,28);
+    Date isNotLeap(2019,02,28);
+    
+    std::string leapy = "2020-02-29";
+    std::string noLeap = "2019-03-01";
+    
+    isLeap = isLeap + 1;
+    isNotLeap = isNotLeap + 1;
+    
+    EXPECT_EQ(isLeap.GetDate(),leapy) << "Leap years not calculated correctly";
+    EXPECT_EQ(isNotLeap.GetDate(),noLeap) << "Non-leap years not calculated correctly";
 }
 
 
