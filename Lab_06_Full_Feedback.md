@@ -1,6 +1,6 @@
 ### Feedback for Lab 06
 
-Run on February 12, 19:42:07 PM.
+Run on February 13, 01:40:37 AM.
 
 
 #### System Files and Lab Directory Structure
@@ -40,7 +40,7 @@ Run on February 12, 19:42:07 PM.
 + Pass: Check that file "date_unittest" exists.
 
 + Pass: Get all google tests.
-    12 tests found.
+    15 tests found.
 
 
 
@@ -87,16 +87,8 @@ Run on February 12, 19:42:07 PM.
 
 
 
-+ Fail: Check that a GoogleTest test passes.
-    fails the test: DateTest.TodayTest.
-<pre>
-[ RUN      ] DateTest.TodayTest
-./date_unittest.cc:157: Failure
-      Expected: today.GetDate()
-      Which is: "2019-02-12"
-To be equal to: todayMatch
-      Which is: "2019-02-11"
-Today's Date not calculated properly</pre>
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.Today.
 
 
 
@@ -115,7 +107,22 @@ Today's Date not calculated properly</pre>
 
 
 
-+ Fail: 91.67% of the tests passed, but the target is 100%.
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.FirstDateTest.
+
+
+
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.LastDateTest.
+
+
+
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.LeapYearTest.
+
+
+
++ Pass: 100% of the tests passed.
 
 
 ### Testing Mutants
@@ -138,8 +145,7 @@ Today's Date not calculated properly</pre>
 
 #### Testing Mutant 4 for failure
 
-+ Fail: There is no test case for this mutant (since all tests pass).
-   - Reason - Today's date month off by one
++ Pass: At least one test failed for Mutant 4
 
 
 #### Testing Mutant 5 for failure
