@@ -1,6 +1,6 @@
 ### Feedback for Lab 07
 
-Run on February 18, 12:25:53 PM.
+Run on February 18, 14:00:13 PM.
 
 
 #### Necessary Files and Structure
@@ -13,20 +13,16 @@ Run on February 18, 12:25:53 PM.
 
 + Pass: Change into directory "labs/lab07_style_doxy".
 
-+ Fail: Check that directory "docs" exists.
++ Pass: Check that directory "docs" exists.
 
-     "docs" not found.
-
-+ Skip: Check that file "docs/Doxyfile" exists.
-
-  This test was not run because of an earlier failing test.
++ Pass: Check that file "docs/Doxyfile" exists.
 
 
 #### .gitignore configured properly
 
-+ Skip: Check that file/directory "html" does not exist.
++ Fail: Check that file/directory "html" does not exist.
 
-  This test was not run because of an earlier failing test.
+     "html" found.
 
 + Skip: Check that file/directory "latex" does not exist.
 
