@@ -1,0 +1,183 @@
+$\ast$$\ast$ to describe the class and at least one of the class methods. $\ast$$\ast$\+Use
+
+$\ast$$\ast$\+\_\+\+Note\+: cpplint.\+py is a bit slow on some of the C\+SE Lab machines. Please refer to \href{https://github.umn.edu/umn-csci-3081-F18/csci3081-shared-upstream/blob/support-code/HW/HW05/README.md\#alternative-options-for-running-cpplintpy}{\texttt{ Option \#3 below}} for a solution.\+\_\+$\ast$$\ast$
+
+\subsubsection*{Part 1 -\/ Google Style Compliance\+: Linting}
+
+\href{https://google.github.io/styleguide/cppguide.html}{\texttt{ https\+://google.\+github.\+io/styleguide/cppguide.\+html}}
+
+A style guide sets guidelines for how files, classes, functions, and variables should be named. It also sets guidelines for white space, line lengths, and commenting within the code. By standardizing naming conventions and layout, it is easier to integrate code from various programmers in a cohesive way that is readable and understandable by everyone. Going forward, all code submitted for this course must be compliant with the Google Style Guide. As stated before, not everyone is going to agree on every style rule aesthetically, but it is important to have a standard that everyone programs to.
+
+The code we have provided you in src directory is {\itshape somewhat} style-\/compliant. There are still a few compliance errors in the various files for you to find and fix.
+
+To fix the errors, you will first need to identify them with {\itshape cpplint}. The {\itshape cpplint.\+py} file is available on C\+SE labs machines. To run the linter on your code, navigate to src directory and do the following\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cpplint.py main.cc}
+\end{DoxyCode}
+
+
+OR
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cpplint.py --root=.. *.h}
+\DoxyCodeLine{cpplint.py *.cc}
+\end{DoxyCode}
+
+
+Invoking the linter on the headers and source files separately is not required, but when you first start, if there are a lot of errors then you won\textquotesingle{}t have to scroll back up through screenfulls of text to see where they are. For all-\/in-\/one do\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cpplint.py --root=.. *.h *.cc}
+\end{DoxyCode}
+
+
+$\ast$$\ast$\+\_\+\+What does \char`\"{}-\/-\/root=..\char`\"{} mean?\+\_\+$\ast$$\ast$ Header guards must always be in place for header files. During compilation, particularly when you have circular references in your code, a header file might be included multiple times from multiple header files. If you have already included the header during compilation, you don\textquotesingle{}t want the compiler to include it again, thus you are {\itshape guarding} against including it multiple times (possibly infinite if circular references exist). Google Style states that header guards should use the full path to that file. The {\itshape --root} flag allows us to specify where in the path to start.
+
+When you run the linter, you should get a report of each error that includes the file, line number, and a short description of the problem. If you need guidance in what is expected, you can consult the Style Guide\+: \href{https://google.github.io/styleguide/cppguide.html}{\texttt{ https\+://google.\+github.\+io/styleguide/cppguide.\+html}}. Notice that the errors range from the placement of braces to the use of the keyword {\ttfamily explicit} to commenting.
+
+If you want to run the linter on your local copy on your personal machine, you will need to download cpplint from the repository\+: \href{https://github.com/google/styleguide}{\texttt{ https\+://github.\+com/google/styleguide}}. Note that this will not be supported by the instructional staff, nor is it sufficient. Your code must pass the linter on a C\+S\+E\+Labs machine. If you are working on your own machine, it is recommended that you install with the python installation tool {\itshape pip3}, which might need to be installed (but probably not if you have python3 -- type {\ttfamily pip3 -\/-\/version} to verify), then install cpplint with {\ttfamily pip3 install cpplint}.
+
+As part of assessment, all files in the {\bfseries{src}} directory will be run through cpplint. Make sure your code has 0 errors when you submit.
+
+\subsubsection*{Alternative Options for Running cpplint.\+py}
+
+It has come to our attention that cpplint.\+py is running quite slow on the lab machines, so we have compiled a few practical options to help speed things up.
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries{S\+SH into Apollo or Atlas}} -\/ These machines do not appear to have the network storage issue that is slowing down cpplint.\+py in other labs (i.\+e. KH 1-\/250)
+\item {\bfseries{Run on your local machine}} -\/ You could install from instructions above, but just in case you have trouble installing cpplint.\+py, we included it in the support-\/code here\+: \href{https://github.umn.edu/umn-csci-3081-F18/csci3081-shared-upstream/tree/support-code/cpplint}{\texttt{ https\+://github.\+umn.\+edu/umn-\/csci-\/3081-\/\+F18/csci3081-\/shared-\/upstream/tree/support-\/code/cpplint}}.
+\end{DoxyEnumerate}
+
+You may need to install cpplint as follows\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{pip install cpplint}
+\DoxyCodeLine{cpplint --root=.. main.cc}
+\end{DoxyCode}
+
+
+Otherwise you could try the following \begin{DoxyVerb}```bash
+# Example usage
+cd src
+../../../cpplint/cpplint.py --root=.. main.cc
+```
+\end{DoxyVerb}
+
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Use cpplint-\/cse.\+sh in C\+SE Labs}} -\/ We included a C\+SE Labs script that will take advantage of the local system storage to speed up cpplint.\+py. This is available by pulling the support-\/code into your repository (\href{https://github.umn.edu/umn-csci-3081-F18/csci3081-shared-upstream/tree/support-code/cpplint}{\texttt{ https\+://github.\+umn.\+edu/umn-\/csci-\/3081-\/\+F18/csci3081-\/shared-\/upstream/tree/support-\/code/cpplint}})\+: \begin{DoxyVerb}  ```git pull upstream support-code```
+
+  To use, you simply replace cpplint.py with the path to cpplint-cse.sh (be sure to always include the **--root=** option).
+  Here are a couple of examples:
+
+ ```bash
+ # Example usage
+ cd src
+ ../../../cpplint/cpplint-cse.sh --root=.. main.cc
+
+ #Another example
+ ../../../cpplint/cpplint-cse.sh --root=.. *.cc
+ ```
+\end{DoxyVerb}
+
+\end{DoxyEnumerate}
+
+\subsubsection*{Part 2 -\/ Doxygen}
+
+Now that your code is Google style compliant, the next part of this lab is to generate documentation and U\+ML for the code. This is done via Doxygen.
+
+According to their official website, \begin{quote}
+Doxygen is the de facto standard tool for generating documentation from annotated C++ sources, but it also supports other popular programming languages such as C, Objective-\/C, C\#, P\+HP, Java, Python, I\+DL (Corba, Microsoft, and U\+N\+O/\+Open\+Office flavors), Fortran, V\+H\+DL, Tcl, and to some extent D. \end{quote}
+
+
+Notice how the class Robot\+Viewer in robot\+\_\+viewer.\+h has a description above the class definition. Doxygen makes use of this to generate documentation for this class. Doxygen also generates documentation for all functions of a class.
+
+N\+O\+TE\+: Students working on their personal machines will have to download the doxygen executable before continuing. C\+SE labs machines already have doxygen installed.
+
+
+\begin{DoxyEnumerate}
+\item Create the configuration file. To start generating documentation, you must first generate a Doxygen configuration file in the docs directory. Run the following command from the lab07 directory.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mkdir docs}
+\DoxyCodeLine{doxygen -g docs/Doxyfile}
+\end{DoxyCode}
+
+
+You will now see a new file {\bfseries{Doxyfile}} in the docs directory.
+
+
+\begin{DoxyEnumerate}
+\item Modify the Doxyfile to look in the {\itshape src} folder when compiling. You can do this by setting the {\bfseries{I\+N\+P\+UT}} tag of your {\bfseries{Doxyfile}} to point to src.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{../src}
+\end{DoxyCode}
+ Also, to generate the U\+ML, set the {\bfseries{U\+M\+L\+\_\+\+L\+O\+OK}} and {\bfseries{H\+A\+V\+E\+\_\+\+D\+OT}} tag to {\bfseries{Y\+ES}}.
+
+The path is relative to the directory from which you run/compile the doxygen. It is important that you set it up to run from docs, because that is where the grading scripts will run from. Doxygen will not inform you if it does not find the src directory -- it just won\textquotesingle{}t generate any files from your classes.
+
+
+\begin{DoxyEnumerate}
+\item Generate the html pages for this lab. Run the following commands\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd docs}
+\DoxyCodeLine{doxygen Doxyfile}
+\end{DoxyCode}
+
+
+You can now view the generated documentation from the index.\+html file in the {\bfseries{html}} directory that was generated inside the docs folder. Open the index.\+html page which is refered to as the landing page. Explore the various menus to see how the comments in the code are organized in the html. Click on the classes and you will see U\+M\+L-\/like diagrams showing the relationship between classes. One missing piece is a general overview of the code, which you want in the landing page. Currently it is blank because there is no mainpage.\+h file in your src directory.
+\item Create a home page for the project. In your {\itshape src} directory, create a file {\bfseries{mainpage.\+h}} and paste the following in it.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/*! \(\backslash\)mainpage My Personal Index Page}
+\DoxyCodeLine{ *}
+\DoxyCodeLine{ * \(\backslash\)section intro\_sec Introduction}
+\DoxyCodeLine{ *}
+\DoxyCodeLine{ * This is the introduction.}
+\DoxyCodeLine{ *}
+\DoxyCodeLine{ */}
+\end{DoxyCode}
+
+
+Generate documentation again by running doxygen as you did before from the docs directory and notice how you now have a landing page for your project.
+
+
+\begin{DoxyEnumerate}
+\item Edit the mainpage.\+h file by giving it a title and write a sentence for the introduction.
+\item Now create a class that has Doxygen comments and see how that gets added to the documentation. Follow the commenting style that you see in robot\+\_\+land.\+h. $\ast$$\ast$\+Use
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$} & to describe parameters in a class method. 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{class Obstacle \{}
+\DoxyCodeLine{public:}
+\DoxyCodeLine{   Obstacle() : radius\_(10), position\_(20.0,20.0) \{\}}
+\DoxyCodeLine{   int get\_radius() \{return radius\_;\}}
+\DoxyCodeLine{   std::pair<double,double> get\_pos() \{return pos\_;\}}
+\DoxyCodeLine{private:}
+\DoxyCodeLine{    int radius\_;}
+\DoxyCodeLine{    std::pair<double, double> pos\_;}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ When you have created this class with documentation (you only need the \+\_\+.\+h\+\_\+ file), run it again and see how it appears in the class list. Click on the class and you will see more detailed information.\\
+\hline
+\end{DoxyParams}
+
+\end{DoxyEnumerate}
+
+{\bfseries{Set .gitignore so that you are not pushing the html and latex folders}} to your repo. These take a lot of space and can be generated from the Doxygen file, thus there is no need to have them in your repo.
+
+{\bfseries{I\+M\+P\+O\+R\+T\+A\+NT}}\+:Make sure you run another Google style check before you make your final submission. 
