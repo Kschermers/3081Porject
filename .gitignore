@@ -3,3 +3,5 @@
 *.pvt
 html/
 latex/
+build/
+external/
