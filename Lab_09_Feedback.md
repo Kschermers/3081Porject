@@ -1,6 +1,6 @@
 ### Feedback for Lab 09
 
-Run on February 21, 14:02:17 PM.
+Run on February 21, 14:04:56 PM.
 
 
 #### System Files and Lab Directory Structure
@@ -38,10 +38,10 @@ make[1]: Entering directory '/class/grades/Spring-2019/csci3081/student-repos/La
 /soft/gcc/7.1.0/Linux_x86_64/bin/g++ -W -Wall -g -std=c++14 -Wno-unused -c -I.. -I. -isystem/classes/grades/Spring-2019/csci3081/csel-s19c3081/include -isystem/classes/grades/Spring-2019/csci3081/csel-s19c3081/include/nanovg -isystem/classes/grades/Spring-2019/csci3081/csel-s19c3081/include/MinGfx-1.0  -c -o  ../build/obj/src/robot.o robot.cc
 robot.cc: In member function ‘void Robot::Update(double)’:
 robot.cc:41:12: error: ‘circle_x’ was not declared in this scope
-     xnow = circle_x(t);
+     xnow = circle_x(t - 0.0);
             ^~~~~~~~
 robot.cc:42:12: error: ‘circle_y’ was not declared in this scope
-     ynow = circle_y(t);
+     ynow = circle_y(t - 0.0);
             ^~~~~~~~
 Makefile:105: recipe for target '../build/obj/src/robot.o' failed
 make[1]: *** [../build/obj/src/robot.o] Error 1
