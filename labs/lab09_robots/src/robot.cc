@@ -8,7 +8,6 @@
  * Includes
  ******************************************************************************/
  #include "src/robot.h"
- #include "src/point.h"
 
 /*******************************************************************************
  * Namespaces
@@ -24,9 +23,9 @@ Robot::Robot(int id, double radius, Point origin, double speed) {
   	origin_ = (512, 350);
  	speed_ = speed;
  	position_ = origin;
- 	direction_ = 0.0  //idk yet
- 	sensor_angle_ = 0.0  //idk yet
- 	sensor_range_ = 0.0  //idk yet
+    direction_ = 0.0;  //idk yet
+    sensor_angle_ = 0.0;  //idk yet
+    sensor_range_ = 0.0;  //idk yet
 }
  
 /*******************************************************************************
@@ -35,6 +34,7 @@ Robot::Robot(int id, double radius, Point origin, double speed) {
 void Robot::Update(double time) {
 	
 	double xvel, yvel, xnow, ynow, xprev, yprev;
+    double delta = 0.1;
     double t = speed_ * time;
 
     xnow = circle_x(t);
@@ -46,7 +46,7 @@ void Robot::Update(double time) {
     yvel = ynow - yprev;
 
     position_ = (xnow, ynow);
-    direction_ = std::atan2(yvel, xvel);
+    direction_ = atan2(yvel, xvel);
 
 }
 
