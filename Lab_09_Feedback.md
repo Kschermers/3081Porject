@@ -1,6 +1,6 @@
 ### Feedback for Lab 09
 
-Run on February 21, 14:17:32 PM.
+Run on February 21, 14:19:07 PM.
 
 
 #### System Files and Lab Directory Structure
@@ -45,10 +45,6 @@ In file included from robot.cc:10:0:
 ../src/robot.h:64:52: error: ‘sin’ was not declared in this scope
    double circle_y(double t) { return 350 + 200.0 * sin(t); }
                                                     ^~~
-robot.cc: In member function ‘void Robot::Update(double)’:
-robot.cc:49:18: error: ‘atan2’ was not declared in this scope
-     direction_ = atan2(yvel, xvel);
-                  ^~~~~
 Makefile:105: recipe for target '../build/obj/src/robot.o' failed
 make[1]: *** [../build/obj/src/robot.o] Error 1
 make[1]: Leaving directory '/class/grades/Spring-2019/csci3081/student-repos/Lab_09_Feedback/repo-scher528/labs/lab09_robots/src'
