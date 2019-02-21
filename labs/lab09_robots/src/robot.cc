@@ -8,7 +8,6 @@
  * Includes
  ******************************************************************************/
  #include "src/robot.h"
-#include "src/robot_land.h"
 
 /*******************************************************************************
  * Namespaces
@@ -38,8 +37,8 @@ void Robot::Update(double time) {
     double delta = 0.1;
     double t = speed_ * time;
 
-    //xnow = circle_x(t);
-    //ynow = circle_y(t);
+    xnow = circle_x(t);
+    ynow = circle_y(t);
     xprev = circle_x(t - delta);
     yprev = circle_y(t - delta);
 
