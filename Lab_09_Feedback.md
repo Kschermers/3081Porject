@@ -1,6 +1,6 @@
 ### Feedback for Lab 09
 
-Run on February 21, 13:59:26 PM.
+Run on February 21, 14:02:17 PM.
 
 
 #### System Files and Lab Directory Structure
@@ -37,15 +37,12 @@ make[1]: Entering directory '/class/grades/Spring-2019/csci3081/student-repos/La
 ==== Compiling robot.cc into ../build/obj/src/robot.o. ====
 /soft/gcc/7.1.0/Linux_x86_64/bin/g++ -W -Wall -g -std=c++14 -Wno-unused -c -I.. -I. -isystem/classes/grades/Spring-2019/csci3081/csel-s19c3081/include -isystem/classes/grades/Spring-2019/csci3081/csel-s19c3081/include/nanovg -isystem/classes/grades/Spring-2019/csci3081/csel-s19c3081/include/MinGfx-1.0  -c -o  ../build/obj/src/robot.o robot.cc
 robot.cc: In member function ‘void Robot::Update(double)’:
-robot.cc:40:12: error: ‘circle_x’ was not declared in this scope
+robot.cc:41:12: error: ‘circle_x’ was not declared in this scope
      xnow = circle_x(t);
             ^~~~~~~~
-robot.cc:41:12: error: ‘circle_y’ was not declared in this scope
+robot.cc:42:12: error: ‘circle_y’ was not declared in this scope
      ynow = circle_y(t);
             ^~~~~~~~
-robot.cc:49:18: error: ‘atan2’ was not declared in this scope
-     direction_ = atan2(yvel, xvel);
-                  ^~~~~
 Makefile:105: recipe for target '../build/obj/src/robot.o' failed
 make[1]: *** [../build/obj/src/robot.o] Error 1
 make[1]: Leaving directory '/class/grades/Spring-2019/csci3081/student-repos/Lab_09_Feedback/repo-scher528/labs/lab09_robots/src'
