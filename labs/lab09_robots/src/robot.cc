@@ -38,8 +38,8 @@ void Robot::Update(double time) {
     double delta = 0.1;
     double t = speed_ * time;
 
-    xnow = circle_x(t - 0.0);
-    ynow = circle_y(t - 0.0);
+    //xnow = circle_x(t);
+    //ynow = circle_y(t);
     xprev = circle_x(t - delta);
     yprev = circle_y(t - delta);
 
