@@ -13,6 +13,11 @@
 #ifndef SRC_ROBOT_H_
 #define SRC_ROBOT_H_
 
+/******************************************************************************
+ * Includes
+ ******************************************************************************/
+#include "src/point.h"
+#include <cmath>
 
 class Robot {
 
@@ -55,6 +60,8 @@ private:
   double direction_; // current directional angle in radians
   double sensor_angle_; // angle between sensors relative to robot center.
   double sensor_range_;  // distance range of sensor.
+  double circle_x(double t) { return 512 + 200.0 * cos(t); }
+  double circle_y(double t) { return 350 + 200.0 * sin(t); }
 };
 
  #endif  // SRC_ROBOT_H_
