@@ -19,9 +19,9 @@ Robot::Robot(int id, double radius, Point origin = (200,300), double speed) {
   	origin_ = (512, 350);
  	speed_ = speed;
  	position_ = origin;
- 	direction_ = 0.0  //idk yet
- 	sensor_angle_ = 2.0  //idk yet
- 	sensor_range_ = 150.0  //idk yet
+ 	direction_ = 0.0;  //idk yet
+ 	sensor_angle_ = 2.0;  //idk yet
+ 	sensor_range_ = 150.0;  //idk yet
 }
  
 /*******************************************************************************
