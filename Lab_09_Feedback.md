@@ -1,6 +1,6 @@
 ### Feedback for Lab 09
 
-Run on February 24, 15:59:12 PM.
+Run on February 24, 16:00:53 PM.
 
 
 #### System Files and Lab Directory Structure
@@ -39,10 +39,6 @@ make[1]: Entering directory '/class/grades/Spring-2019/csci3081/student-repos/La
 robot.cc:15:1: error: default argument missing for parameter 4 of ‘Robot::Robot(int, double, Point, double)’
  Robot::Robot(int id, double radius, Point origin = (200,300), double speed) {
  ^~~~~
-robot.cc: In member function ‘void Robot::Update(double)’:
-robot.cc:37:26: error: ‘delta’ was not declared in this scope
-     xprev = circle_x(t - delta);
-                          ^~~~~
 Makefile:105: recipe for target '../build/obj/src/robot.o' failed
 make[1]: *** [../build/obj/src/robot.o] Error 1
 make[1]: Leaving directory '/class/grades/Spring-2019/csci3081/student-repos/Lab_09_Feedback/repo-scher528/labs/lab09_robots/src'
