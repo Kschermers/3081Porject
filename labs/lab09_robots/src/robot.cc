@@ -31,6 +31,7 @@ void Robot::Update(double time) {
 	
 	double xvel, yvel, xnow, ynow, xprev, yprev;
     double t = speed_ * time;
+    double delta = 0.1;
 
     xnow = circle_x(t);
     ynow = circle_y(t);
