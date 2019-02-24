@@ -12,7 +12,7 @@
 /*******************************************************************************
  * Constructors/Destructor
  ******************************************************************************/
-Robot::Robot(int id, double radius, Point origin, double speed) {
+Robot::Robot(int id, double radius, Point origin = (200,300), double speed) {
 	id_ = id;
  	radius_ = radius;
  	color_ = true;  //idk yet
@@ -20,8 +20,8 @@ Robot::Robot(int id, double radius, Point origin, double speed) {
  	speed_ = speed;
  	position_ = origin;
  	direction_ = 0.0  //idk yet
- 	sensor_angle_ = 0.0  //idk yet
- 	sensor_range_ = 0.0  //idk yet
+ 	sensor_angle_ = 2.0  //idk yet
+ 	sensor_range_ = 150.0  //idk yet
 }
  
 /*******************************************************************************
