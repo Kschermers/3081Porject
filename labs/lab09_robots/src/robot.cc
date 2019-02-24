@@ -77,3 +77,18 @@ double Robot::get_sensor_angle() {
 double Robot::get_sensor_range() {
 	return sensor_range_;
 }
+
+bool Robot::get_vel(double *x_vel, double *y_vel) {
+
+	double xnow, ynow, xprev, yprev;
+    double t = speed_ * time;
+    double delta = 0.1;
+
+    xnow = circle_x(t);
+    ynow = circle_y(t);
+    xprev = circle_x(t - delta);
+    yprev = circle_y(t - delta);
+
+    *x_vel = xnow - xprev;
+    *y_vel = ynow - yprev;
+}

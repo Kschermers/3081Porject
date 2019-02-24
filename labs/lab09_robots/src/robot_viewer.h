@@ -201,7 +201,7 @@ class RobotViewer : public GraphicsApp {
    * @param[in] sensor_angle Angle between sensors relative to robot center.
    * @param[in] sensor_range Range distance in pixels of each sensor.
    */
-  void DrawRobot(NVGcontext *ctx, int id, double xpos, double ypos, double xvel, double yvel, double rad, double sensor_angle, double sensor_range);
+  void DrawRobot(NVGcontext *ctx, Robot * robot);
 
   /**
    * @brief Draw the sensors from a robot using nanogui.

@@ -8,6 +8,7 @@
  * Includes
  ******************************************************************************/
 #include "src/robot_viewer.h"
+#include "src/robot.h"
 #include <iostream>
 #include <string>
 
@@ -70,8 +71,7 @@ void RobotViewer::OnPauseBtnPressed() {
 
 // this function requires an active nanovg drawing context (ctx),
 // so it can only be called from within DrawUsingNanoVG()
-void RobotViewer::DrawRobot(NVGcontext *ctx, int id, double xpos, double ypos,
-                            double xvel, double yvel, double rad, double sensor_angle, double sensor_range) {
+void RobotViewer::DrawRobot(NVGcontext *ctx, Robot * robot) {
   // translate and rotate all graphics calls that follow so that they are
   // centered
   // at the position and heading for this robot
@@ -86,7 +86,21 @@ void RobotViewer::DrawRobot(NVGcontext *ctx, int id, double xpos, double ypos,
 
   // Put the origin of the coordinate system at the center of the robot, and
   // orient the x-axis to align with the velocity (i.e. heading) of the robot.
+
+  //int id, double xpos, double ypos, double xvel, double yvel, double rad, double sensor_angle, double sensor_range
   nvgSave(ctx);
+
+  int id;
+  double xpos, ypos, xvel, yvel, rad, sensor_angle, sensor_range;
+
+  id = robot->get_id();
+  Point p = robot->get_position();
+  xpos = p.x_;
+  ypos = p.y_;
+  robot->get_vel(&xvel,&yvel);
+  sensor_angle = robot->get_sensor_angle();
+  sensor_range = robot->get_sensor_range();
+
   nvgTranslate(ctx, xpos, ypos);
   double angle = std::atan2(yvel, xvel);
   nvgRotate(ctx, angle);
@@ -192,13 +206,9 @@ void RobotViewer::DrawUsingNanoVG(NVGcontext *ctx) {
 
   // Draw each robot in robot land
   for (int i = 0; i < robot_land_->get_num_robots(); i++) {
-    double xpos, ypos;
-    robot_land_->get_robot_pos(i, &xpos, &ypos);
+    
 
-    double xvel, yvel;
-    robot_land_->get_robot_vel(i, &xvel, &yvel);
-
-    DrawRobot(ctx, i, xpos, ypos, xvel, yvel, robot_land_->get_robot_radius(), robot_land_->get_robot_sensor_angle(), robot_land_->get_robot_sensor_range());
+    DrawRobot(ctx, robot_land_->get_robot(i));
   }
 }
 

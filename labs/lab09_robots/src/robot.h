@@ -49,6 +49,7 @@ public:
   double get_direction();
   double get_sensor_angle();
   double get_sensor_range();
+  bool get_vel(double *x_vel, double *y_vel);
 
 private:
   int id_;
@@ -60,8 +61,8 @@ private:
   double direction_; // current directional angle in radians
   double sensor_angle_; // angle between sensors relative to robot center.
   double sensor_range_;  // distance range of sensor.
-  double circle_x(double t) { return 512 + 200.0 * cos(t); }
-  double circle_y(double t) { return 350 + 200.0 * sin(t); }
+  double circle_x(double t) { return origin_.x_ + 200.0 * cos(t); }
+  double circle_y(double t) { return origin_.y_ + 200.0 * sin(t); }
 };
 
  #endif  // SRC_ROBOT_H_
