@@ -12,7 +12,7 @@
 /*******************************************************************************
  * Constructors/Destructor
  ******************************************************************************/
-Robot::Robot(int id, double radius, Point origin = (200,300), double speed) {
+Robot::Robot(int id, double radius, Point origin = (200,300), double speed = 1) {
 	id_ = id;
  	radius_ = radius;
  	color_ = true;  //idk yet
