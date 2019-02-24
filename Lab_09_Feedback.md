@@ -1,6 +1,6 @@
 ### Feedback for Lab 09
 
-Run on February 24, 15:57:05 PM.
+Run on February 24, 15:59:12 PM.
 
 
 #### System Files and Lab Directory Structure
@@ -39,10 +39,6 @@ make[1]: Entering directory '/class/grades/Spring-2019/csci3081/student-repos/La
 robot.cc:15:1: error: default argument missing for parameter 4 of ‘Robot::Robot(int, double, Point, double)’
  Robot::Robot(int id, double radius, Point origin = (200,300), double speed) {
  ^~~~~
-robot.cc: In constructor ‘Robot::Robot(int, double, Point, double)’:
-robot.cc:23:3: error: expected ‘;’ before ‘sensor_angle_’
-   sensor_angle_ = 2.0  //idk yet
-   ^~~~~~~~~~~~~
 robot.cc: In member function ‘void Robot::Update(double)’:
 robot.cc:37:26: error: ‘delta’ was not declared in this scope
      xprev = circle_x(t - delta);
