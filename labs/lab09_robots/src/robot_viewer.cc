@@ -91,18 +91,18 @@ void RobotViewer::DrawRobot(NVGcontext *ctx, Robot * robot) {
   nvgSave(ctx);
 
   int id;
-  double xpos, ypos, xvel, yvel, rad, sensor_angle, sensor_range;
+  double xpos, ypos, rad, sensor_angle, sensor_range;
 
   id = robot->get_id();
   Point p = robot->get_position();
+  rad = robot-> get_radius();
   xpos = p.x_;
   ypos = p.y_;
-  robot->get_vel(&xvel,&yvel);
   sensor_angle = robot->get_sensor_angle();
   sensor_range = robot->get_sensor_range();
 
   nvgTranslate(ctx, xpos, ypos);
-  double angle = std::atan2(yvel, xvel);
+  double angle = robot->get_direction();
   nvgRotate(ctx, angle);
 
   // robot's circle

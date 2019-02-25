@@ -33,8 +33,8 @@
 class RobotLand {
  public:
   
-
-  RobotLand(void) {}
+  RobotLand(void);
+  ~RobotLand();
 
   /**
    * @brief Set the simulation time for \ref RobotLand.
@@ -57,12 +57,13 @@ class RobotLand {
 
   // Once the robot class is created, this should call a robot method to
   // advance its position and set the velocity based on dt
-  
   void AdvanceTime(double dt) {
+    sim_time_ += dt;
     
-    *robot0->Update(time);
-    *robot1->Update(time);
     std::cout << "Advancing simulation time to " << sim_time_ << std::endl;
+
+    robot0->Update(sim_time_);
+    robot1->Update(sim_time_);
   }
 
   /**
@@ -95,6 +96,8 @@ class RobotLand {
 
  private:
 
+  Robot* robot0;
+  Robot* robot1;
   double sim_time_{0.0};
 };
 
