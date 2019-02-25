@@ -17,7 +17,6 @@
  * Includes
  ******************************************************************************/
 #include "src/point.h"
-#include <cmath>
 
 class Robot {
 

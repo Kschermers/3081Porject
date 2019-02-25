@@ -8,6 +8,7 @@
  * Includes
  ******************************************************************************/
  #include "src/robot.h"
+ #include <cmath>
 
 /*******************************************************************************
  * Constructors/Destructor
@@ -32,8 +33,8 @@ void Robot::Update(double time) {
 	
 	double xvel, yvel, xnow, ynow, xprev, yprev;
 
-    xnow = (double) (origin_.x_ + 200.0 * cos(time * speed_));
-    ynow = (double) (origin_.y_ + 200.0 * sin(time * speed_));
+    xnow = (origin_.x_ + (200.0 * cos(time * speed_)));
+    ynow = (origin_.y_ + (200.0 * sin(time * speed_)));
     xprev = position_.x_;
     yprev = position_.y_;
 

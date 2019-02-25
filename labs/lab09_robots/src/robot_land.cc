@@ -14,8 +14,8 @@
  ******************************************************************************/
  RobotLand::RobotLand(void) {
 
-    Robot * robot0 = new Robot(0, 50.0, Point(512.0, 350.0), 1.0);
-    Robot * robot1 = new Robot(1, 50.0, Point(512.0, 350.0), .75);
+    robot0 = new Robot(0, 50.0, Point(512.0, 350.0), 1.0);
+    robot1 = new Robot(1, 50.0, Point(512.0, 350.0), .75);
   
   }
 
