@@ -61,8 +61,6 @@ private:
   double direction_; // current directional angle in radians
   double sensor_angle_; // angle between sensors relative to robot center.
   double sensor_range_;  // distance range of sensor.
-  double circle_x(double t) { return origin_.x_ + 200.0 * cos(t); }
-  double circle_y(double t) { return origin_.y_ + 200.0 * sin(t); }
 };
 
  #endif  // SRC_ROBOT_H_
