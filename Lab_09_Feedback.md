@@ -1,6 +1,6 @@
 ### Feedback for Lab 09
 
-Run on February 25, 10:54:34 AM.
+Run on February 25, 11:12:19 AM.
 
 
 #### System Files and Lab Directory Structure
@@ -36,30 +36,18 @@ Run on February 25, 10:54:34 AM.
 
 
 
-+ Fail: Check that a GoogleTest test passes.
-    fails the test: RobotTest.ConstructorDefault.
-<pre>
-[ RUN      ] RobotTest.ConstructorDefault
-robot_unittest.cc:31: Failure
-Expected equality of these values:
-  robot0->get_position().x_
-    Which is: 550
-  200
-FAIL: pos x_ in constructor
-robot_unittest.cc:33: Failure
-Expected equality of these values:
-  robot1->get_position().x_
-    Which is: 550
-  200
-FAIL: pos x_ in constructor</pre>
++ Pass: Check that a GoogleTest test passes.
+    passes the test: RobotTest.ConstructorDefault.
 
 
 
-+ Skip: Check that a GoogleTest test passes.
++ Pass: Check that a GoogleTest test passes.
+    passes the test: RobotTest.UpdateRobot0.
 
-  This test was not run because of an earlier failing test.
 
-+ Skip: Check that a GoogleTest test passes.
 
-  This test was not run because of an earlier failing test.
++ Pass: Check that a GoogleTest test passes.
+    passes the test: RobotTest.UpdateRobot1.
+
+
 
