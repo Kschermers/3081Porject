@@ -49,7 +49,6 @@ public:
   double get_direction();
   double get_sensor_angle();
   double get_sensor_range();
-  bool get_vel(double *x_vel, double *y_vel);
 
 private:
   int id_;
