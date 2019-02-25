@@ -38,6 +38,9 @@ void RobotViewer::InitNanoGUI() {
   pause_btn_ =
       gui->addButton("Pause", std::bind(&RobotViewer::OnPauseBtnPressed, this));
   gui->addButton("Restart", std::bind(&RobotViewer::OnRestartBtnPressed, this));
+  
+  gui->addButton("Robot 0 color", std::bind(&RobotViewer::OnColorChangeBtnPressed0, this));
+  gui->addButton("Robot 1 color", std::bind(&RobotViewer::OnColorChangeBtnPressed1, this));
 
   screen()->performLayout();
 
@@ -59,6 +62,14 @@ void RobotViewer::UpdateSimulation(double dt) {
 
 // The handlers for the menu buttons ...
 void RobotViewer::OnRestartBtnPressed() { robot_land_->set_time(0.0); }
+
+void RobotViewer::OnColorChangeBtnPressed0() {
+  robot_land_->get_robot(0)->set_color(!(robot_land_->get_robot(0)->get_color()));
+}
+
+void RobotViewer::OnColorChangeBtnPressed1() {
+  robot_land_->get_robot(1)->set_color(!(robot_land_->get_robot(1)->get_color()));
+}
 
 void RobotViewer::OnPauseBtnPressed() {
   paused_ = !paused_;
@@ -108,7 +119,11 @@ void RobotViewer::DrawRobot(NVGcontext *ctx, Robot * robot) {
   // robot's circle
   nvgBeginPath(ctx);
   nvgCircle(ctx, 0.0, 0.0, rad);
-  nvgFillColor(ctx, nvgRGBA(200, 200, 200, 255));
+  if (robot->get_color()) {
+    nvgFillColor(ctx, nvgRGBA(100, 0, 200, 255));
+  } else  {
+    nvgFillColor(ctx, nvgRGBA(200, 200, 200, 255));
+  }
   nvgFill(ctx);
   nvgStrokeColor(ctx, nvgRGBA(0, 0, 0, 255));
   nvgStroke(ctx);
