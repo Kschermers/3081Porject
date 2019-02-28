@@ -10,7 +10,7 @@
 #include <algorithm>
 #include <iostream>
 #include <cmath>
-
+#include "src/braitenberg_vehicle.h"
 #include "src/arena.h"
 #include "src/light.h"
 
