@@ -24,7 +24,7 @@ You will probably want to refer to these as you work on the lab.
 The robot viewer is derived from `GraphicsApp` in MinGfx. When building the
 simulator, the local object files are linked with libMinGfx, which are being created locally the first time you run _make_.
 
-> **Do  not submit to your repo any of the code from libMinGfx.**
+> **Do not submit to your repo any of the code from libMinGfx.**
 
 ### Directory Structure
 
@@ -39,8 +39,6 @@ The directory structure for this lab is identical to that of the project.
     robot_viewer.h/cc and robot_land.h/cc.
 
 - `src/Makefile`:
-  - You should *NOT* have to modify this makefile _EXCEPT_ for the `CS3081DIR`
-    variable described above (both for this lab and the project).
   - Builds the project source, assumes it should build all .cc files in the
     current directory.
   - Creates the `build/bin/robotviewer` executable.
@@ -50,6 +48,7 @@ The directory structure for this lab is identical to that of the project.
 - `build`: Created by the Makefiles. Should be added to your `.gitignore`.
   - `build/bin`: All executables generated for the project will appear in here.
   - `build/obj`: all .o's and .d's (from make depend) go in here.
+  - **Do not push the build folder to your repo**
 
 <hr>
 
@@ -59,7 +58,7 @@ The directory structure for this lab is identical to that of the project.
 
 2. _merge_ the new lab code into your master branch.
 
-3. At the top level from the OS command prompt: `make`. The first time you make, a local version of the MinGfx library will be build. This might take awhile (and it is likely you will only be able to do this on a cselabs machine unless you have the appropriate software installed on your personal machine, such as cmake). After the first build, compilation should go faster.
+3. At the top level from the OS command prompt: `make`. The first time you make, a local version of the MinGfx library will be built. This might take awhile (and it is likely you will only be able to do this on a cselabs machine unless you have the appropriate software installed on your personal machine, such as cmake and OpenGL). After the first build, compilation should go faster.
 
 4. At the command prompt: `./build/bin/robotviewer`. You will not be able to run the executable from any remote connection other than Vole3d. It will compile, but you will not be able to run it.
 
@@ -125,7 +124,7 @@ constantly moving, even though they move in the graphics window in discrete step
 Currently, RobotLand consists of one stationary "obstacle" and two robots going
 around in circles. (Obstacle is in quotes because currently the robots are passing right through it.) No robot class **_currently_** exists, but you will be implementing one as part of this lab. The position and direction of each robot is determined by the circular pattern they are following. A call to circle_x() and circle_y() with a time value will generate the current position of the robot.
 
-Notice that the RobotLand::advance_time() sets the current time of the simulation. When the robot viewer needs to draw the objects, circle_x and circle_y are called to calculate and return the current position of the robot.
+Notice that the RobotLand::AdvanceTime() sets the current time of the simulation. When the robot viewer needs to draw the objects, circle_x and circle_y are called to calculate and return the current position of the robot.
 
 ### Keyboard and Mouse Event Handling
 
@@ -144,7 +143,7 @@ menu made for this application. If you downloaded the nanogui examples, you saw
 how complex these menus can be. It is quite easy to add buttons with various
 functionality to the menu. Let's trace that process through the code ...
 
-It starts in the RobotViewer constructor:
+It starts in RobotViewer::InitNanoGUI (this overrides GraphicsApp::InitNanoGUI):
 
 ```C++
 nanogui::FormHelper *gui = new nanogui::FormHelper(screen());
@@ -184,7 +183,7 @@ graphics application. If you are really not understanding it, read through again
 or talk to a peer.
 
 Seriously, do it. The project works in the same way, and is MUCH larger, so you
-should try to have a good handle on the basic flow before continuing with this
+should try to have a good handle on the basic flow of control before continuing with this
 lab, and eventually the project.
 
 <hr>
@@ -194,8 +193,8 @@ lab, and eventually the project.
 ### Create a Robot Class
 
 1. Add a robot class to the application. Define the robot class in the 2 files
-   _robot.h_ and _robot.cc_. Use the robot class to save the size, color,
-   position, and direction. A file "point.h" has been included to store the {x,y} position of the robot. The Robot class must have (at least) the following interface. You are welcome to add methods and variables as seems appropriate.
+   _robot.h_ and _robot.cc_. Use the robot class to save the radius, color,
+   position, speed, and direction. A file "point.h" has been included to store the {x,y} position of the robot. The Robot class must have (at least) the following interface. You are welcome to add methods and variables as seems appropriate.
 
 ```C++
 /**
@@ -249,15 +248,15 @@ private:
 };
 ```
 
-2. The constructor initializes all class members. The origin should be set to {512,350}. The Update function calculates the new robot position based on the circle_x and circle_y equations of the original base code. It updates direction, based on the calculated velocity (i.e. change in x and y).
+2. The constructor initializes all class members based on the user-defined parameters AND for other member variables, use the values given in the provided code. The origin should be set to {512,350} **when you instantiate in RobotLand**. Initialize the position of the robot based on the user-defined origin and a sim_time_ of 0. The Update function calculates the new robot position based on the circle_x and circle_y equations of the original base code. It updates direction, based on the calculated velocity (i.e. change in x and y), as shown in DrawUsingNanoVG.
 
-> Notice that the robots move at a different rate around the circle, which is accomplished in the base code by modifying the simulation time. For your robot, use the speed_ variable to control this. Also, notice how the direction is calculated in the RobotViewer in DrawUsingNanoVG based on velocity and then taking atan2(delta_y, delta_x). For your robot, the direction corresponds to the atan2 results.
+> Notice that the robots move at a different rate around the circle, which is accomplished in the base code by scaling the simulation time. For your robot, use the speed_ variable to control this. Also, notice how the direction is calculated in the RobotViewer in DrawUsingNanoVG based on velocity and then taking atan2(delta_y, delta_x). For your robot class, the direction corresponds to the atan2 results, and this should be calculated in the Robot then the RobotViewer uses a getter to get that information.
 
-The setters and getters for Robot are straightforward, but ask if you have questions. You do not need your robot class functional or working in the context of the graphics viewer to receive feedback about the Robot class.
+The setters and getters for Robot are straightforward, but ask if you have questions. You do not need your robot class functional or working in the context of the graphics viewer to receive feedback about the Robot class from the automated grading script.
 
 ### Incorporate Robot Class into RobotLand
 
-1. Define Robot **pointers** as members of RobotLand. These can be 2 separate pointers or combined into an array. Instantiate the robots in the RobotLand constructor. Destroy the robots in the RobotLand destructor.
+1. Define Robot **pointers** as members of RobotLand. These can be 2 separate pointers or combined into an array. Instantiate the robots in the RobotLand constructor, setting the user-defined parameters for the Robot **such that they will look and behave exactly like they do in the provided code**. Destroy the robots in the RobotLand destructor.
 
 2. In `RobotLand::AdvanceTime()`, call Robot::Update(time) for each robot. The Update() function will update the position and direction of the robot.
 
@@ -291,8 +290,8 @@ Within DrawRobot, use the setters and getters of the Robot class to extract the 
 1. Add 2 buttons to the GUI to change the color of each robot.
    - Create OnColorChangeBtnPressed0() method to change the color of robot 0.
    - Create OnColorChangeBtnPressed1() method to change the color of robot 1.
-   - Create 2 new nanogui buttons in the RobotViewer constructor, binding its
-     click action to the functions you just created (look at the other buttons in the constructor for examples of how to do this).
+   - Create 2 new nanogui buttons in the RobotViewer InitNanoGUI, binding its
+     click action to the functions you just created (look at the other buttons in RobotViewer::InitNanoGUI for examples of how to do this).
 
 2. In `RobotViewer::DrawRobots`, incorporate Robot::color_. If it is true, then fill the robot circle with maroon (or whatever color you want):
 ```
