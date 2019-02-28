@@ -1,23 +1,26 @@
 ### Feedback for Lab 10
 
-Run on February 27, 10:09:05 AM.
+Run on February 28, 08:43:19 AM.
 
 
 #### Git Usage
 
-+ Fail: Run git ls-remote to check for existence of specific branch- Branch devel not found
++ Pass: Run git ls-remote to check for existence of specific branch- Branch devel found
 
-+ Skip: Checkout devel branch.
++ Pass: Checkout devel branch.
 
-  This test was not run because of an earlier failing test.
 
-+ Skip: Run git ls-remote gather all branches in repo
 
-  This test was not run because of an earlier failing test.
++ Pass: Run git ls-remote gather all branches in repo
 
-+ Skip: Run git ls-remote to check for # of branches in repo
+0ff0b5d2efeaa2472e56918a38e074508b2c36bb	refs/heads/devel
 
-  This test was not run because of an earlier failing test.
+cb2ea4c891d8bd5c513d874638fd7779b7be5c5b	refs/heads/master
+
+
+
++ Fail: Run git ls-remote to check for # of branches in repo
+Insufficient branches (found=2,required=3)
 
 
 #### Necessary Files and Structure
