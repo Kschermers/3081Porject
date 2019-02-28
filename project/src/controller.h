@@ -46,6 +46,8 @@ class Controller {
    */
   Controller(int argc, char **argv);
 
+  Controller(const Controller &other);
+
   virtual ~Controller();
 
   virtual ArenaViewer* CreateViewer(int width, int height);

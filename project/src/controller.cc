@@ -100,5 +100,12 @@ void Controller::Reset() {
   viewer_->SetArena(arena_);
 }
 
+Controller::Controller(const Controller &other) {
+	last_dt = other.last_dt;
+	arena_ = other.arena_;
+	viewer_ = other.viewer_;
+	viewers_ = other.viewers_;
+	config_ = other.config_;
+}
 
 NAMESPACE_END(csci3081);
