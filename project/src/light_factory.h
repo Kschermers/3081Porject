@@ -1,19 +1,18 @@
 /**
- * @file arena_mobile_entity_factory.h
+ * @file light_factory.h
  *
  * @copyright 2019 Kadin Schermers
  */
 
-#ifndef SRC_ARENA_MOBILE_ENTITY_FACTORY_H_
-#define SRC_ARENA_MOBILE_ENTITY_FACTORY_H_
+#ifndef SRC_LIGHT_FACTORY_H_
+#define SRC_LIGHT_FACTORY_H_
 
 /*******************************************************************************
  * Includes
  ******************************************************************************/
 #include <string>
 #include "src/arena_entity_factory.h"
-#include "src/arena_mobile_entity.h"
-#include "src/entity_type.h"
+#include "src/light.h"
 
 /*******************************************************************************
  * Namespaces
@@ -24,26 +23,26 @@ NAMESPACE_BEGIN(csci3081);
  * Class Definitions
  ******************************************************************************/
 /**
- * @brief ArenaMobileEntity factory that creates any type of ArenaMobileEntity objects
+ * @brief LightFactory factory that creates Light objects
  */
-class ArenaMobileEntityFactory : public ArenaEntityFactory {
+class LightFactory : public ArenaEntityFactory {
 public:
 /**
- * @brief default constructor for ArenaMobileEntityFactory
+ * @brief default constructor for LightFactory
  */
-  ArenaMobileEntityFactory();
+  LightFactory() {}
 
 /**
- * @brief destructor for ArenaMobileEntityFactory
+ * @brief destructor for BraitenbergVehicleFactory
  */
- ~ArenaMobileEntityFactory();
+ ~LightFactory() {}
 
 /**
- * @brief create method inherited from arena_entity_factory that creates ArenaMobileEntity objects of given type
+ * @brief create method inherited from arena_entity_factory that creates Light objects
  */
-  ArenaMobileEntity* create(EntityType type);
+  Light* create(/*jsonobject* config*/) {return NULL;}
 };
 
 NAMESPACE_END(csci3081);
 
-#endif /* SRC_ARENA_MOBILE_ENTITY_FACTORY_H_ */
+#endif /* SRC_LIGHT_FACTORY_H_*/

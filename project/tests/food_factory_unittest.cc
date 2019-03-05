@@ -2,26 +2,24 @@
  * Includes
  ******************************************************************************/
 #include <gtest/gtest.h>
-#include "src/arena_immobile_entity_factory.h"
-#include "src/arena_immobile_entity.h"
+#include "src/food_factory.h"
 #include "src/food.h"
 #include "src/params.h"
-#include "src/entity_type.h"
 
  /******************************************************
 * TEST FEATURE SetUp
 *******************************************************/
-class ImmobileFactoryTest : public ::testing::Test {
+class FoodFactoryTest : public ::testing::Test {
 
  protected:
   virtual void SetUp() {
-    factory_ = new csci3081::ArenaImmobileEntityFactory();
+    factory_ = new csci3081::FoodFactory();
   }
   virtual void TearDown() {
     delete factory_;
   }
 
-  csci3081::ArenaImmobileEntityFactory * factory_;
+  csci3081::FoodFactory * factory_;
 
 };
 
@@ -29,9 +27,9 @@ class ImmobileFactoryTest : public ::testing::Test {
  * Test Cases
  ******************************************************************************/
 
-TEST_F(ImmobileFactoryTest, Create) {
+TEST_F(FoodFactoryTest, Create) {
 
-  csci3081::ArenaImmobileEntity* ent_ = (csci3081::Food*) factory_->create(csci3081::EntityType::kFood);
+  csci3081::Food* ent_ = (csci3081::Food*) factory_->create();
 
   EXPECT_EQ(ent_->get_color().r, 0);
   EXPECT_EQ(ent_->get_color().g, 255);
