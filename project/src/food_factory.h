@@ -30,17 +30,17 @@ public:
 /**
  * @brief constructor
  */
-  FoodFactory() {}
-  
+  FoodFactory();
+
 /**
  * @brief destructor
  */
-  ~FoodFactory() {}
+  ~FoodFactory();
 
 /**
  * @brief create method inherited from arena_entity_factory that makes a Food object
  */
-  Food* create(/*jsonobject* config*/) {return NULL;}
+  Food* create(/*jsonobject* config*/) override;
 };
 
 NAMESPACE_END(csci3081);

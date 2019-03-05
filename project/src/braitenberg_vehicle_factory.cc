@@ -1,17 +1,14 @@
 /**
- * @file braitenberg_vehicle_factory.h
+ * @file braitenberg_vehicle_factory.cc
  *
  * @copyright 2019 Kadin Schermers
  */
-
-#ifndef SRC_BRAITENBEG_VEHICLE_FACTORY_H_
-#define SRC_BRAITENBEG_VEHICLE_FACTORY_H_
 
 /*******************************************************************************
  * Includes
  ******************************************************************************/
 #include <string>
-#include "src/arena_entity_factory.h"
+#include "src/braitenberg_vehicle_factory.h"
 #include "src/braitenberg_vehicle.h"
 
 /*******************************************************************************
@@ -20,37 +17,26 @@
 NAMESPACE_BEGIN(csci3081);
 
 /*******************************************************************************
- * Class Definitions
+ * Constructors/Destructor
  ******************************************************************************/
-/**
- * @brief BraitenbergVehicleFactory factory that creates Braitenberg Vehicle objects
- */
-class BraitenbergVehicleFactory : public ArenaEntityFactory {
-public:
 /**
  * @brief default constructor for BraitenbergVehicleFactory
  */
-  BraitenbergVehicleFactory();
-
-/**
- * @brief delete copy and assignment constructor
- */
-
-  BraitenbergVehicleFactory(const BraitenbergVehicleFactory & rhs) = delete;
-
-  BraitenbergVehicleFactory operator=(const BraitenbergVehicle & rhs) = delete;
+  BraitenbergVehicleFactory::BraitenbergVehicleFactory() {}
 
 /**
  * @brief destructor for BraitenbergVehicleFactory
  */
- ~BraitenbergVehicleFactory();
+ BraitenbergVehicleFactory::~BraitenbergVehicleFactory() {}
 
+/*******************************************************************************
+ * Class Methods
+ ******************************************************************************/
 /**
  * @brief create method inherited from arena_entity_factory that creates BraitenbergVehicle objects
  */
-  BraitenbergVehicle* create(/*jsonobject* config*/) override;
-};
+  BraitenbergVehicle* BraitenbergVehicleFactory::create(/*jsonobject* config*/) {
+    return new BraitenbergVehicle();
+  }
 
 NAMESPACE_END(csci3081);
-
-#endif /* SRC_BRAITENBEG_VEHICLE_FACTORY_H_*/
