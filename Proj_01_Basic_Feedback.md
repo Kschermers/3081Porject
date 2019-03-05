@@ -1,6 +1,6 @@
 ### Feedback for Proj 01
 
-Run on March 04, 21:00:18 PM.
+Run on March 04, 21:05:16 PM.
 
 
 ***Note: This is just the basic feedback.  The full feedback is run daily as a batch process (click link below)***
@@ -36,9 +36,7 @@ Link to full feedback: [Proj_01_Full_Feedback.md](Proj_01_Full_Feedback.md)
 
 #### Documentation Tests
 
-+ Fail: Check that file "src/mainpage.h" exists.
-
-     "src/mainpage.h" not found.
++ Pass: Check that file "src/mainpage.h" exists.
 
 + Fail: Check that file "docs/uml_design.pdf" exists.
 
@@ -95,6 +93,8 @@ food_factory.h:29:  public: should be indented +1 space inside class FoodFactory
 graphics_arena_viewer.h:171:  "virtual" is redundant since function is already declared as "override"  [readability/inheritance] [4]
 light_factory.h:29:  public: should be indented +1 space inside class LightFactory  [whitespace/indent] [3]
 light_factory.h:38:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+mainpage.h:0:  No copyright message found.  You should have a line: "Copyright [year] <Copyright Owner>"  [legal/copyright] [5]
+mainpage.h:0:  No #ifndef header guard found, suggested CPP variable is: SRC_MAINPAGE_H_  [build/header_guard] [5]
 Done processing arena.cc
 Done processing braitenberg_vehicle.cc
 Done processing braitenberg_vehicle_factory.cc
@@ -125,13 +125,14 @@ Done processing food.h
 Done processing graphics_arena_viewer.h
 Done processing light_factory.h
 Done processing light.h
+Done processing mainpage.h
 Done processing motion_behavior_differential.h
 Done processing motion_behavior.h
 Done processing params.h
 Done processing pose.h
 Done processing rgb_color.h
 Done processing wheel_velocity.h
-Total errors found: 35
+Total errors found: 37
 Makefile:162: recipe for target 'check-style' failed
 make[1]: *** [check-style] Error 1
 make[1]: Leaving directory '/class/grades/Spring-2019/csci3081/student-repos/Proj_01_Basic_Feedback/repo-scher528/project/src'
