@@ -1,6 +1,6 @@
 ### Feedback for Proj 01
 
-Run on March 04, 21:05:16 PM.
+Run on March 08, 14:41:37 PM.
 
 
 ***Note: This is just the basic feedback.  The full feedback is run daily as a batch process (click link below)***
@@ -38,9 +38,7 @@ Link to full feedback: [Proj_01_Full_Feedback.md](Proj_01_Full_Feedback.md)
 
 + Pass: Check that file "src/mainpage.h" exists.
 
-+ Fail: Check that file "docs/uml_design.pdf" exists.
-
-     "docs/uml_design.pdf" not found.
++ Pass: Check that file "docs/uml_design.pdf" exists.
 
 + Fail: Check that file "docs/design.pdf" exists.
 
@@ -60,6 +58,10 @@ make[1]: Entering directory '/class/grades/Spring-2019/csci3081/student-repos/Pr
 /class/grades/Spring-2019/csci3081/student-repos/Proj_01_Basic_Feedback/repo-scher528/cpplint/cpplint.py --root=.. *.cc *.h
 arena.cc:239:  Missing space after ,  [whitespace/comma] [3]
 arena.cc:47:  Add #include <string> for string  [build/include_what_you_use] [4]
+braitenberg_vehicle.cc:46:  Redundant blank line at the start of a code block should be deleted.  [whitespace/blank_line] [2]
+braitenberg_vehicle.cc:47:  Missing space before ( in if(  [whitespace/parens] [5]
+braitenberg_vehicle.cc:113:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+braitenberg_vehicle.cc:118:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
 braitenberg_vehicle_factory.cc:30:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
 braitenberg_vehicle_factory.cc:38:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
 controller.cc:36:  Extra space for operator !   [whitespace/operators] [4]
@@ -132,7 +134,7 @@ Done processing params.h
 Done processing pose.h
 Done processing rgb_color.h
 Done processing wheel_velocity.h
-Total errors found: 37
+Total errors found: 41
 Makefile:162: recipe for target 'check-style' failed
 make[1]: *** [check-style] Error 1
 make[1]: Leaving directory '/class/grades/Spring-2019/csci3081/student-repos/Proj_01_Basic_Feedback/repo-scher528/project/src'
