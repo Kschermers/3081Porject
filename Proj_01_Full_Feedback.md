@@ -1,6 +1,6 @@
 ### Feedback for Proj 01
 
-Run on March 07, 14:01:36 PM.
+Run on March 11, 11:27:08 AM.
 
 + Pass: Checkout devel branch.
 
@@ -68,6 +68,10 @@ make[1]: Entering directory '/classes/grades/Spring-2019/csci3081/dtorban/csci30
 /classes/grades/Spring-2019/csci3081/dtorban/csci3081-grading-env/grading-scripts/grading/Proj_01_Full_Feedback/repo-scher528/cpplint/cpplint.py --root=.. *.cc *.h
 arena.cc:239:  Missing space after ,  [whitespace/comma] [3]
 arena.cc:47:  Add #include <string> for string  [build/include_what_you_use] [4]
+braitenberg_vehicle.cc:46:  Redundant blank line at the start of a code block should be deleted.  [whitespace/blank_line] [2]
+braitenberg_vehicle.cc:47:  Missing space before ( in if(  [whitespace/parens] [5]
+braitenberg_vehicle.cc:113:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+braitenberg_vehicle.cc:118:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
 braitenberg_vehicle_factory.cc:30:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
 braitenberg_vehicle_factory.cc:38:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
 controller.cc:36:  Extra space for operator !   [whitespace/operators] [4]
@@ -140,7 +144,7 @@ Done processing params.h
 Done processing pose.h
 Done processing rgb_color.h
 Done processing wheel_velocity.h
-Total errors found: 37
+Total errors found: 41
 Makefile:162: recipe for target 'check-style' failed
 make[1]: *** [check-style] Error 1
 make[1]: Leaving directory '/classes/grades/Spring-2019/csci3081/dtorban/csci3081-grading-env/grading-scripts/grading/Proj_01_Full_Feedback/repo-scher528/project/src'
@@ -155,34 +159,13 @@ make: *** [check-style] Error 2
 
 + Pass: Check that file "build/bin/unittest" exists.
 
-+ Fail: Check that a GoogleTest test passes.
-    fails the test: InstBraitenbergVehicle.ColorMatchesBehavior.
-<pre>
-[ RUN      ] InstBraitenbergVehicle.ColorMatchesBehavior
-inst_braitenberg_vehicle.cc:48: Failure
-Expected equality of these values:
-  bv->get_color()
-    Which is: 12-byte object <7A-00 00-00 00-00 00-00 19-00 00-00>
-  csci3081::RgbColor(csci3081::kBlue)
-    Which is: 12-byte object <00-00 00-00 00-00 00-00 FF-00 00-00>
-The robot's color should be Blue when there is only a food behavior.
-inst_braitenberg_vehicle.cc:57: Failure
-Expected equality of these values:
-  bv->get_color()
-    Which is: 12-byte object <7A-00 00-00 00-00 00-00 19-00 00-00>
-  csci3081::RgbColor(csci3081::kGold)
-    Which is: 12-byte object <FF-00 00-00 CC-00 00-00 33-00 00-00>
-The robot's color should be Gold when there is only a light behavior.</pre>
++ Pass: Check that a GoogleTest test passes.
+    passes the test: InstBraitenbergVehicle.ColorMatchesBehavior.
 
 
 
-+ Fail: Check that a GoogleTest test passes.
-    fails the test: InstBraitenbergVehicle.RobotMovesInEmptyScene.
-<pre>
-[ RUN      ] InstBraitenbergVehicle.RobotMovesInEmptyScene
-inst_braitenberg_vehicle.cc:70: Failure
-Expected: ((bv->get_pose()-prevPose).Length()) > (0.005f), actual: 0 vs 0.005
-The robot should move with Love even if there are not lights or food.</pre>
++ Pass: Check that a GoogleTest test passes.
+    passes the test: InstBraitenbergVehicle.RobotMovesInEmptyScene.
 
 
 
