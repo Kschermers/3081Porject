@@ -1,6 +1,6 @@
 ### Feedback for Proj 01
 
-Run on March 13, 13:28:35 PM.
+Run on March 13, 16:08:09 PM.
 
 + Pass: Checkout devel branch.
 
@@ -43,7 +43,9 @@ Run on March 13, 13:28:35 PM.
 
 #### Documentation Tests
 
-+ Pass: Check that file "docs/uml_design.pdf" exists.
++ Fail: Check that file "docs/uml_design.pdf" exists.
+
+     "docs/uml_design.pdf" not found.
 
 + Fail: Check that file "docs/design.pdf" exists.
 
@@ -59,20 +61,20 @@ Run on March 13, 13:28:35 PM.
 #### Git Usage
 
 + Pass: Check git commit history
-Sufficient commits (found=38,required=25)
+Sufficient commits (found=39,required=25)
 
 + Pass: Run git ls-remote to check for # of branches in repo
 Sufficient branches (found=6,required=4)
 
 + Pass: Run git ls-remote gather all branches in repo
 
-4f42618c3a0c88e5e965f15c12e6aa5ae9a116a3	refs/heads/devel
+1d4f6ae1e6063397a88f6975454104714b267fa3	refs/heads/devel
 
 8ff74716127fe44df4f1e5bbc7ed8ac04e0c5ef8	refs/heads/fix/01-compilation-errors
 
 8ff74716127fe44df4f1e5bbc7ed8ac04e0c5ef8	refs/heads/fix/02-robot-collision-error
 
-c9c1c750a15878dc97df54cc003d832b151d9667	refs/heads/master
+69233b9cbdeefac118a504202314e97bc5a1fc7b	refs/heads/master
 
 fc9f4cd39fb0c68686fcf8b79ce1359abe7fdd06	refs/heads/test/factory-pattern-tests
 
