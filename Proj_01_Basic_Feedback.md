@@ -1,6 +1,6 @@
 ### Feedback for Proj 01
 
-Run on March 08, 14:41:37 PM.
+Run on March 13, 14:25:53 PM.
 
 
 ***Note: This is just the basic feedback.  The full feedback is run daily as a batch process (click link below)***
@@ -34,11 +34,54 @@ Link to full feedback: [Proj_01_Full_Feedback.md](Proj_01_Full_Feedback.md)
 + Pass: Change into directory "project".
 
 
+#### Git Usage
+
++ Pass: Check git commit history
+Sufficient commits (found=39,required=25)
+
++ Pass: Run git ls-remote gather all branches in repo
+
+1d4f6ae1e6063397a88f6975454104714b267fa3	refs/heads/devel
+
+8ff74716127fe44df4f1e5bbc7ed8ac04e0c5ef8	refs/heads/fix/01-compilation-errors
+
+8ff74716127fe44df4f1e5bbc7ed8ac04e0c5ef8	refs/heads/fix/02-robot-collision-error
+
+2bf266eddf268e99b2da2a4230cf74078b3844ba	refs/heads/master
+
+fc9f4cd39fb0c68686fcf8b79ce1359abe7fdd06	refs/heads/test/factory-pattern-tests
+
+21e8e70873b42c94f236632a85590d95adc9275d	refs/heads/test/generateDoxygen
+
+
+
+
+#### Git Issue Usage
+
++ Pass: Configuring GHI
+
++ Pass: Run ghi for total number of open issues in Github repo (Found: 1)
+
+[OPEN issue #/bin/sh:] : ghi: command not found
+
+
+
+
+
++ Pass: Run ghi for total number of closed issues in Github repo (Found: 1)
+
+[CLOSED issue #/bin/sh:] : ghi: command not found
+
+
+
+
+
+
 #### Documentation Tests
 
-+ Pass: Check that file "src/mainpage.h" exists.
++ Fail: Check that file "docs/uml_design.pdf" exists.
 
-+ Pass: Check that file "docs/uml_design.pdf" exists.
+     "docs/uml_design.pdf" not found.
 
 + Fail: Check that file "docs/design.pdf" exists.
 
