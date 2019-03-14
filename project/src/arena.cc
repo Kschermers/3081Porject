@@ -30,8 +30,7 @@ NAMESPACE_BEGIN(csci3081);
 Arena::Arena(): x_dim_(X_DIM),
       y_dim_(Y_DIM),
       entities_(),
-      mobile_entities_(),
-      light_sensors_() {
+      mobile_entities_() {
     AddEntity(new Light());
     AddEntity(new Food());
     AddEntity(new BraitenbergVehicle());
@@ -93,8 +92,8 @@ void Arena::AddEntity(ArenaEntity* ent) {
     mobile_entities_.push_back(mob_ent);
   }
 
-  if (ent->get_type() == kBraitenberg) {
-    BraitenbergVehicle* bv = static_cast<BraitenbergVehicle*>(ent);
+  BraitenbergVehicle* bv = dynamic_cast<BraitenbergVehicle*>(ent);
+  if (bv) {
     bv->UpdateLightSensors();
   }
 }
