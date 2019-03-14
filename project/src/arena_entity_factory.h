@@ -25,8 +25,7 @@ NAMESPACE_BEGIN(csci3081);
 * @brief ArenaEntityFactory interface that AEMobile and AEImmobile inherit from
 */
 class ArenaEntityFactory {
-public:
-
+ public:
 /**
  * @brief destructor
  */

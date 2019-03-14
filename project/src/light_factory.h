@@ -26,7 +26,7 @@ NAMESPACE_BEGIN(csci3081);
  * @brief LightFactory factory that creates Light objects
  */
 class LightFactory : public ArenaEntityFactory {
-public:
+ public:
 /**
  * @brief default constructor for LightFactory
  */
@@ -35,7 +35,7 @@ public:
 /**
  * @brief destructor for BraitenbergVehicleFactory
  */
- ~LightFactory();
+  ~LightFactory();
 
 /**
  * @brief create method inherited from arena_entity_factory that creates Light objects

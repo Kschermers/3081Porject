@@ -4,8 +4,8 @@
  * @copyright 2019 Kadin Schermers
  */
 
-#ifndef SRC_BRAITENBEG_VEHICLE_FACTORY_H_
-#define SRC_BRAITENBEG_VEHICLE_FACTORY_H_
+#ifndef SRC_BRAITENBERG_VEHICLE_FACTORY_H_
+#define SRC_BRAITENBERG_VEHICLE_FACTORY_H_
 
 /*******************************************************************************
  * Includes
@@ -26,7 +26,7 @@ NAMESPACE_BEGIN(csci3081);
  * @brief BraitenbergVehicleFactory factory that creates Braitenberg Vehicle objects
  */
 class BraitenbergVehicleFactory : public ArenaEntityFactory {
-public:
+ public:
 /**
  * @brief default constructor for BraitenbergVehicleFactory
  */
@@ -43,7 +43,7 @@ public:
 /**
  * @brief destructor for BraitenbergVehicleFactory
  */
- ~BraitenbergVehicleFactory();
+  ~BraitenbergVehicleFactory();
 
 /**
  * @brief create method inherited from arena_entity_factory that creates BraitenbergVehicle objects
@@ -53,4 +53,4 @@ public:
 
 NAMESPACE_END(csci3081);
 
-#endif /* SRC_BRAITENBEG_VEHICLE_FACTORY_H_*/
+#endif  // SRC_BRAITENBERG_VEHICLE_FACTORY_H_

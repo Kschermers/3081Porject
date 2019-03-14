@@ -27,7 +27,7 @@ NAMESPACE_BEGIN(csci3081);
 /**
  * @brief destructor for BraitenbergVehicleFactory
  */
- LightFactory::~LightFactory() {}
+  LightFactory::~LightFactory() {}
 
 /*******************************************************************************
  * Class Methods

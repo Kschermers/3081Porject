@@ -26,7 +26,7 @@ NAMESPACE_BEGIN(csci3081);
  * @brief FoodFactory that creates Food objects
  */
 class FoodFactory : public ArenaEntityFactory {
-public:
+ public:
 /**
  * @brief constructor
  */

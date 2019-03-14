@@ -43,8 +43,7 @@ BraitenbergVehicle::BraitenbergVehicle() :
 }
 
 void BraitenbergVehicle::TimestepUpdate(__unused unsigned int dt) {
-
-  if(turnCount > 0) {
+  if (turnCount > 0) {
     turnCount = turnCount -1;
   }  else if (turnCount == 0) {
     set_heading(static_cast<int>((get_pose().theta + 45)) % 360);
@@ -110,12 +109,12 @@ void BraitenbergVehicle::Update() {
         1.0/get_sensor_reading_left(closest_light_entity_),
         1.0/get_sensor_reading_right(closest_light_entity_), defaultSpeed_);
         break;
-   case kAggressive:
+    case kAggressive:
       light_wheel_velocity = WheelVelocity(
         get_sensor_reading_right(closest_light_entity_),
         get_sensor_reading_left(closest_light_entity_), defaultSpeed_);
         break;
-   case kCoward:
+    case kCoward:
       light_wheel_velocity = WheelVelocity(
         get_sensor_reading_left(closest_light_entity_),
         get_sensor_reading_right(closest_light_entity_), defaultSpeed_);

@@ -33,12 +33,11 @@ Controller::Controller(int argc, char **argv) :
     std::string json = str;
     config_ = new json_value();
     std::string err = parse_json(*config_, json);
-    if (! err.empty()) {
+    if (!err.empty()) {
       std::cerr << "Parse error: " << err << std::endl;
       delete config_;
       config_ = NULL;
-    }
-    else {
+    } else {
       arena_ = new Arena(config_->get<json_object>());
     }
   }
@@ -100,10 +99,11 @@ void Controller::Reset() {
   viewer_->SetArena(arena_);
 }
 
-Controller::Controller(const Controller &other) : viewers_(other.viewers_), config_(other.config_) {
-	last_dt = other.last_dt;
-	arena_ = other.arena_;
-	viewer_ = other.viewer_;
+Controller::Controller(const Controller &other) :
+viewers_(other.viewers_), config_(other.config_) {
+  last_dt = other.last_dt;
+  arena_ = other.arena_;
+  viewer_ = other.viewer_;
 }
 
 NAMESPACE_END(csci3081);

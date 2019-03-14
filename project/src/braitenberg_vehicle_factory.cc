@@ -27,7 +27,7 @@ NAMESPACE_BEGIN(csci3081);
 /**
  * @brief destructor for BraitenbergVehicleFactory
  */
- BraitenbergVehicleFactory::~BraitenbergVehicleFactory() {}
+  BraitenbergVehicleFactory::~BraitenbergVehicleFactory() {}
 
 /*******************************************************************************
  * Class Methods
@@ -35,8 +35,8 @@ NAMESPACE_BEGIN(csci3081);
 /**
  * @brief create method inherited from arena_entity_factory that creates BraitenbergVehicle objects
  */
-  BraitenbergVehicle* BraitenbergVehicleFactory::create(/*jsonobject* config*/) {
-    return new BraitenbergVehicle();
-  }
+BraitenbergVehicle* BraitenbergVehicleFactory::create(/*jsonobject* config*/) {
+    return new BraitenbergVehicle()
+}
 
 NAMESPACE_END(csci3081);
