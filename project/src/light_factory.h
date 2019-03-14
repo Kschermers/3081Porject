@@ -40,7 +40,7 @@ class LightFactory : public ArenaEntityFactory {
 /**
  * @brief create method inherited from arena_entity_factory that creates Light objects
  */
-  Light* create(/*jsonobject* config*/) override;
+  ArenaEntity* create(const json_object& entity_config) override;
 };
 
 NAMESPACE_END(csci3081);

@@ -35,8 +35,10 @@ NAMESPACE_BEGIN(csci3081);
  /**
   * @brief create method inherited from arena_entity_factory that makes a Food object
   */
-  Food* FoodFactory::create(/*jsonobject* config*/) {
-    return new Food();
+  ArenaEntity* FoodFactory::create(const json_object& entity_config) {
+    Food* f = new Food();
+    f->LoadFromObject(&entity_config);
+    return f;
   }
 
 NAMESPACE_END(csci3081);

@@ -35,8 +35,11 @@ NAMESPACE_BEGIN(csci3081);
 /**
  * @brief create method inherited from arena_entity_factory that creates BraitenbergVehicle objects
  */
-BraitenbergVehicle* BraitenbergVehicleFactory::create(/*jsonobject* config*/) {
-    return new BraitenbergVehicle()
-}
+ArenaEntity* BraitenbergVehicleFactory::create(
+  const json_object& entity_config) {
+    BraitenbergVehicle* bv = new BraitenbergVehicle();
+    bv->LoadFromObject(&entity_config);
+    return bv;
+  }
 
 NAMESPACE_END(csci3081);

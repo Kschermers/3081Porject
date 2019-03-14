@@ -34,7 +34,7 @@ class ArenaEntityFactory {
 /**
  * @brief create an ArenaEntity of given type
  */
-  virtual ArenaEntity* create(/*jsonobject* config*/) = 0;
+  virtual ArenaEntity* create(const json_object& entity_config) = 0;
 };
 
 NAMESPACE_END(csci3081);

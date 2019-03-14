@@ -1,66 +1,45 @@
 /*******************************************************************************
- * Includes
- ******************************************************************************/
+* Includes
+******************************************************************************/
 #include <gtest/gtest.h>
-#include "src/braitenberg_vehicle.h"
+#include <string>
 #include "src/braitenberg_vehicle_factory.h"
-#include "src/params.h"
-#include "src/pose.h"
-
-/*******************************************************************************
- * Namespaces
- ******************************************************************************/
-NAMESPACE_BEGIN(csci3081);
-
- /******************************************************
+#include "src/braitenberg_vehicle.h"
+/******************************************************
 * TEST FEATURE SetUp
 *******************************************************/
-class RobotFactoryTest : public ::testing::Test {
+class BraitenbergVehicleFactoryTest : public ::testing::Test {
+protected:
+virtual void SetUp() {
+braitenberg_factory_ = new csci3081::BraitenbergVehicleFactory();
+std::string json =
+"{\"type\": \"Braitenberg\", \"x\":270, \"y\":270, \"r\":15, \"theta\": 215, \"light_behavior\": \"None\", \"food_behavior\": \"Explore\" }";
+config_ = new json_value();
+std::string err = parse_json(config_, &json);
+}
 
- protected:
-  virtual void SetUp() {
-    factory_ = new BraitenbergVehicleFactory();
-  }
-  virtual void TearDown() {
-    delete factory_;
-  }
+virtual void TearDown() {
+  delete braitenberg_factory_;
+  delete config_;
+}
 
-  csci3081::BraitenbergVehicleFactory * factory_;
-
+csci3081::BraitenbergVehicleFactory* braitenberg_factory_;
+json_value* config_;
 };
-
 /*******************************************************************************
- * Test Cases
- ******************************************************************************/
-
-TEST_F(RobotFactoryTest, Create) {
-
-  csci3081::BraitenbergVehicle* ent_robo_ = (csci3081::BraitenbergVehicle*) factory_->create();
-
-  EXPECT_EQ(ent_robo_->get_speed(), 5.0);
-  EXPECT_EQ(ent_robo_->get_color().r, 122);
-  EXPECT_EQ(ent_robo_->get_color().g, 0);
-  EXPECT_EQ(ent_robo_->get_color().b, 25);
-  EXPECT_EQ(ent_robo_->get_radius(), LIGHT_RADIUS);
-  EXPECT_EQ(ent_robo_->get_type(), csci3081::EntityType::kBraitenberg);
-  EXPECT_EQ(ent_robo_->get_pose().x, 500);
-  EXPECT_EQ(ent_robo_->get_pose().y, 500);
-  EXPECT_EQ(ent_robo_->get_pose().theta, 0);
-  EXPECT_EQ(ent_robo_->is_mobile(), true);
-  EXPECT_EQ(ent_robo_->get_light_behavior(), csci3081::Behavior::kNone);
-  EXPECT_EQ(ent_robo_->get_food_behavior(), csci3081::Behavior::kNone);
-
-  std::vector<csci3081::Pose> vPose;
-  vPose.push_back(csci3081::Pose());
-  vPose.push_back(csci3081::Pose());
-
-  std::vector<csci3081::Pose> vPose_robo_ = ent_robo_->get_light_sensors();
-
-  for(int i = 0;i < 2; i++) {
-    EXPECT_EQ(vPose_robo_[i].x,vPose[i].x);
-    EXPECT_EQ(vPose_robo_[i].y,vPose[i].y);
-    EXPECT_EQ(vPose_robo_[i].theta,vPose[i].theta);
-  }
+* Test Cases
+******************************************************************************/
+TEST_F(BraitenbergVehicleFactoryTest, Constructor) {
 };
+TEST_F(BraitenbergVehicleFactoryTest, Create) {
+csci3081::BraitenbergVehicle* entity_robot_ =
+(csci3081::BraitenbergVehicle*)
+braitenberg_factory_->create(config_->get<json_object>());
 
-NAMESPACE_END(csci3081);
+EXPECT_NEAR(entity_robot_->get_pose().x, 270, .01);
+EXPECT_NEAR(entity_robot_->get_pose().y, 270, .01);
+EXPECT_NEAR(entity_robot_->get_pose().theta, 215, .01);
+EXPECT_NEAR(entity_robot_->get_radius(), 15, .01);
+EXPECT_EQ(entity_robot_->get_light_behavior(), csci3081::Behavior::kNone);
+EXPECT_EQ(entity_robot_->get_food_behavior(), csci3081::Behavior::kExplore);
+};

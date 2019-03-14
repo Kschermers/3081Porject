@@ -48,7 +48,7 @@ class BraitenbergVehicleFactory : public ArenaEntityFactory {
 /**
  * @brief create method inherited from arena_entity_factory that creates BraitenbergVehicle objects
  */
-  BraitenbergVehicle* create(/*jsonobject* config*/) override;
+  ArenaEntity* create(const json_object& entity_config) override;
 };
 
 NAMESPACE_END(csci3081);

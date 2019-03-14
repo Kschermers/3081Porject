@@ -40,7 +40,7 @@ class FoodFactory : public ArenaEntityFactory {
 /**
  * @brief create method inherited from arena_entity_factory that makes a Food object
  */
-  Food* create(/*jsonobject* config*/) override;
+  ArenaEntity* create(const json_object& entity_config) override;
 };
 
 NAMESPACE_END(csci3081);

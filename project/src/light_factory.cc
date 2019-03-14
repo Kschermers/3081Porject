@@ -35,8 +35,10 @@ NAMESPACE_BEGIN(csci3081);
 /**
  * @brief create method inherited from arena_entity_factory that creates Light objects
  */
-  Light* LightFactory::create(/*jsonobject* config*/) {
-    return new Light();
+  ArenaEntity* LightFactory::create(const json_object& entity_config) {
+    Light* l = new Light();
+    l->LoadFromObject(&entity_config);
+    return l;
   }
 
 NAMESPACE_END(csci3081);

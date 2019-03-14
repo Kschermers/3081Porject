@@ -12,8 +12,11 @@
 #include <iostream>
 #include <cmath>
 #include "src/braitenberg_vehicle.h"
+#include "src/braitenberg_vehicle_factory.h"
 #include "src/arena.h"
 #include "src/light.h"
+#include "src/light_factory.h"
+#include "src/food_factory.h"
 
 /*******************************************************************************
  * Namespaces
@@ -34,14 +37,17 @@ Arena::Arena(): x_dim_(X_DIM),
     AddEntity(new BraitenbergVehicle());
 }
 
-Arena::Arena(json_object& arena_object): x_dim_(X_DIM),
+Arena::Arena(json_object* arena_object): x_dim_(X_DIM),
       y_dim_(Y_DIM),
       entities_(),
       mobile_entities_(),
       light_sensors_() {
-  x_dim_ = arena_object["width"].get<double>();
-  y_dim_ = arena_object["height"].get<double>();
-  json_array& entities = arena_object["entities"].get<json_array>();
+  FoodFactory* foodFac = new FoodFactory();
+  LightFactory* lightFac = new LightFactory();
+  BraitenbergVehicleFactory* BVFac = new BraitenbergVehicleFactory();
+  x_dim_ = (*arena_object)["width"].get<double>();
+  y_dim_ = (*arena_object)["height"].get<double>();
+  json_array& entities = (*arena_object)["entities"].get<json_array>();
   for (unsigned int f = 0; f < entities.size(); f++) {
     json_object& entity_config = entities[f].get<json_object>();
     EntityType etype = get_entity_type(
@@ -51,13 +57,13 @@ Arena::Arena(json_object& arena_object): x_dim_(X_DIM),
 
     switch (etype) {
       case (kLight):
-        entity = new Light();
+        entity = lightFac->create(entity_config);
         break;
       case (kFood):
-        entity = new Food();
+        entity = foodFac->create(entity_config);
         break;
       case (kBraitenberg):
-        entity = new BraitenbergVehicle();
+        entity = BVFac->create(entity_config);
         break;
       default:
         std::cout << "FATAL: Bad entity type on creation" << std::endl;
@@ -65,7 +71,6 @@ Arena::Arena(json_object& arena_object): x_dim_(X_DIM),
     }
 
     if (entity) {
-      entity->LoadFromObject(entity_config);
       AddEntity(entity);
     }
   }
