@@ -49,10 +49,10 @@ class Arena {
    *
    * Initialize all private variables and entities.
    */
-  explicit Arena();
+  Arena();
 
 
-  explicit Arena(json_object& arena_object);
+  explicit Arena(json_object* arena_object);
 
   /**
    * @brief Arena's destructor. `delete` all entities created.
@@ -157,9 +157,6 @@ class Arena {
 
   // A subset of the entities -- only those that can move (only Robot for now).
   std::vector<class ArenaMobileEntity *> mobile_entities_;
-
-  // A set of all the light sensors that need to get info from entities
-  std::vector<class SensorLight *> light_sensors_;
 };
 
 NAMESPACE_END(csci3081);

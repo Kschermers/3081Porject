@@ -78,7 +78,7 @@ class BraitenbergVehicle : public ArenaMobileEntity {
 
   void UpdateLightSensors();
 
-  void LoadFromObject(json_object& entity_config) override;
+  void LoadFromObject(const json_object* entity_config) override;
 
   Behavior get_light_behavior() { return light_behavior_; }
 
@@ -103,7 +103,8 @@ class BraitenbergVehicle : public ArenaMobileEntity {
   const ArenaEntity* closest_light_entity_;
   const ArenaEntity* closest_food_entity_;
   double defaultSpeed_;
-}
+  int turnCount = -1;
+};
 
 NAMESPACE_END(csci3081);
 

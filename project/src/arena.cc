@@ -8,11 +8,15 @@
  * Includes
  ******************************************************************************/
 #include <algorithm>
+#include <string>
 #include <iostream>
 #include <cmath>
-
+#include "src/braitenberg_vehicle.h"
+#include "src/braitenberg_vehicle_factory.h"
 #include "src/arena.h"
 #include "src/light.h"
+#include "src/light_factory.h"
+#include "src/food_factory.h"
 
 /*******************************************************************************
  * Namespaces
@@ -26,21 +30,23 @@ NAMESPACE_BEGIN(csci3081);
 Arena::Arena(): x_dim_(X_DIM),
       y_dim_(Y_DIM),
       entities_(),
-      mobile_entities_(),
-      light_sensors_() {
+      mobile_entities_() {
     AddEntity(new Light());
     AddEntity(new Food());
     AddEntity(new BraitenbergVehicle());
 }
 
-Arena::Arena(json_object& arena_object): x_dim_(X_DIM),
+Arena::Arena(json_object* arena_object): x_dim_(X_DIM),
       y_dim_(Y_DIM),
       entities_(),
       mobile_entities_(),
       light_sensors_() {
-  x_dim_ = arena_object["width"].get<double>();
-  y_dim_ = arena_object["height"].get<double>();
-  json_array& entities = arena_object["entities"].get<json_array>();
+  FoodFactory* foodFac = new FoodFactory();
+  LightFactory* lightFac = new LightFactory();
+  BraitenbergVehicleFactory* BVFac = new BraitenbergVehicleFactory();
+  x_dim_ = (*arena_object)["width"].get<double>();
+  y_dim_ = (*arena_object)["height"].get<double>();
+  json_array& entities = (*arena_object)["entities"].get<json_array>();
   for (unsigned int f = 0; f < entities.size(); f++) {
     json_object& entity_config = entities[f].get<json_object>();
     EntityType etype = get_entity_type(
@@ -50,13 +56,13 @@ Arena::Arena(json_object& arena_object): x_dim_(X_DIM),
 
     switch (etype) {
       case (kLight):
-        entity = new Light();
+        entity = lightFac->create(entity_config);
         break;
       case (kFood):
-        entity = new Food();
+        entity = foodFac->create(entity_config);
         break;
       case (kBraitenberg):
-        entity = new BraitenbergVehicle();
+        entity = BVFac->create(entity_config);
         break;
       default:
         std::cout << "FATAL: Bad entity type on creation" << std::endl;
@@ -64,7 +70,6 @@ Arena::Arena(json_object& arena_object): x_dim_(X_DIM),
     }
 
     if (entity) {
-      entity->LoadFromObject(entity_config);
       AddEntity(entity);
     }
   }
@@ -87,8 +92,8 @@ void Arena::AddEntity(ArenaEntity* ent) {
     mobile_entities_.push_back(mob_ent);
   }
 
-  if (ent->get_type() == kBraitenberg) {
-    BraitenbergVehicle* bv = static_cast<BraitenbergVehicle*>(ent);
+  BraitenbergVehicle* bv = dynamic_cast<BraitenbergVehicle*>(ent);
+  if (bv) {
     bv->UpdateLightSensors();
   }
 }
@@ -236,7 +241,7 @@ void Arena::AdjustEntityOverlap(ArenaMobileEntity * const mobile_e,
     double distance_between = sqrt(delta_x*delta_x + delta_y*delta_y);
     double distance_to_move =
       mobile_e->get_radius() + other_e->get_radius() - distance_between;
-    double angle = atan(delta_y/delta_x);
+    double angle = atan2(delta_y, delta_x);
     mobile_e->set_position(
       mobile_e->get_pose().x+cos(angle)*distance_to_move,
       mobile_e->get_pose().y+sin(angle)*distance_to_move);

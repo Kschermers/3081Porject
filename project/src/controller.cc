@@ -32,14 +32,13 @@ Controller::Controller(int argc, char **argv) :
                    std::istreambuf_iterator<char>());
     std::string json = str;
     config_ = new json_value();
-    std::string err = parse_json(*config_, json);
-    if (! err.empty()) {
+    std::string err = parse_json(config_, &json);
+    if (!err.empty()) {
       std::cerr << "Parse error: " << err << std::endl;
       delete config_;
       config_ = NULL;
-    }
-    else {
-      arena_ = new Arena(config_->get<json_object>());
+    } else {
+      arena_ = new Arena(&config_->get<json_object>());
     }
   }
   if (!config_) {
@@ -93,12 +92,18 @@ void Controller::Reset() {
     delete (arena_);
   }
   if (config_) {
-    arena_ = new Arena(config_->get<json_object>());
+    arena_ = new Arena(&config_->get<json_object>());
   } else {
     arena_ = new Arena();
   }
   viewer_->SetArena(arena_);
 }
 
+Controller::Controller(const Controller &other) :
+viewers_(other.viewers_), config_(other.config_) {
+  last_dt = other.last_dt;
+  arena_ = other.arena_;
+  viewer_ = other.viewer_;
+}
 
 NAMESPACE_END(csci3081);
