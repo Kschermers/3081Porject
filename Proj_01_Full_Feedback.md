@@ -1,6 +1,6 @@
 ### Feedback for Proj 01
 
-Run on March 13, 18:37:26 PM.
+Run on March 13, 23:26:08 PM.
 
 + Pass: Checkout devel branch.
 
@@ -47,10 +47,6 @@ Run on March 13, 18:37:26 PM.
 
      "docs/uml_design.pdf" not found.
 
-+ Fail: Check that file "docs/design.pdf" exists.
-
-     "docs/design.pdf" not found.
-
 + Pass: Documentation builds.
 
 
@@ -63,9 +59,6 @@ Run on March 13, 18:37:26 PM.
 + Pass: Check git commit history
 Sufficient commits (found=39,required=25)
 
-+ Pass: Run git ls-remote to check for # of branches in repo
-Sufficient branches (found=6,required=4)
-
 + Pass: Run git ls-remote gather all branches in repo
 
 1d4f6ae1e6063397a88f6975454104714b267fa3	refs/heads/devel
@@ -74,13 +67,22 @@ Sufficient branches (found=6,required=4)
 
 8ff74716127fe44df4f1e5bbc7ed8ac04e0c5ef8	refs/heads/fix/02-robot-collision-error
 
-14544b02b6af674f7d3a1116769f35f5b64486c9	refs/heads/master
+22997ed12105245b5c437cc20789c36e148be7b5	refs/heads/master
 
 fc9f4cd39fb0c68686fcf8b79ce1359abe7fdd06	refs/heads/test/factory-pattern-tests
 
 21e8e70873b42c94f236632a85590d95adc9275d	refs/heads/test/generateDoxygen
 
 
+
+
+#### Git Issue Usage
+
++ Pass: Configuring GHI
+
++ Fail: Run ghi for total number of open issues in Github repo (Found: 0)
+
++ Fail: Run ghi for total number of closed issues in Github repo (Found: 0)
 
 
 #### Style Tests
@@ -183,11 +185,6 @@ make: *** [check-style] Error 2
 #### Unit Tests
 
 + Pass: Check that file "build/bin/unittest" exists.
-
-+ Pass: Check that a GoogleTest test passes.
-    passes the test: InstBraitenbergVehicle.ColorMatchesBehavior.
-
-
 
 + Pass: Check that a GoogleTest test passes.
     passes the test: InstBraitenbergVehicle.RobotMovesInEmptyScene.
