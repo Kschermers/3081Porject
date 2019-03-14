@@ -44,8 +44,8 @@ TEST_F(LightFactoryTest, Create) {
 
   EXPECT_NEAR(ent_light_->get_radius(), 25, .01);
   EXPECT_EQ(ent_light_->get_type(), csci3081::EntityType::kLight);
-  EXPECT_NEAR(ent_light_->get_pose().x, 200, .01);
-  EXPECT_NEAR(ent_light_->get_pose().y, 200, .01);
+  EXPECT_NEAR(ent_light_->get_pose().x, 150, .01);
+  EXPECT_NEAR(ent_light_->get_pose().y, 300, .01);
 };
 
 NAMESPACE_END(csci3081);
