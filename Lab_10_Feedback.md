@@ -1,6 +1,6 @@
 ### Feedback for Lab 10
 
-Run on February 28, 08:43:38 AM.
+Run on March 04, 14:35:13 PM.
 
 
 #### Git Usage
@@ -13,53 +13,51 @@ Run on February 28, 08:43:38 AM.
 
 + Pass: Run git ls-remote gather all branches in repo
 
-0ff0b5d2efeaa2472e56918a38e074508b2c36bb	refs/heads/devel
+bdd770d999ae9bfc87187d0253ac0b192c5b4485	refs/heads/devel
 
-58cc5052082b5e370f94a3d83616ec7d6d1f4864	refs/heads/master
+8ff74716127fe44df4f1e5bbc7ed8ac04e0c5ef8	refs/heads/fix/01-compilation-errors
+
+8ff74716127fe44df4f1e5bbc7ed8ac04e0c5ef8	refs/heads/fix/02-robot-collision-error
+
+262168edf94491103259538c764f6d42420b4663	refs/heads/master
+
+fc9f4cd39fb0c68686fcf8b79ce1359abe7fdd06	refs/heads/test/factory-pattern-tests
+
+21e8e70873b42c94f236632a85590d95adc9275d	refs/heads/test/generateDoxygen
 
 
 
-+ Fail: Run git ls-remote to check for # of branches in repo
-Insufficient branches (found=2,required=3)
++ Pass: Run git ls-remote to check for # of branches in repo
+Sufficient branches (found=6,required=3)
 
 
 #### Necessary Files and Structure
 
-+ Skip: Copy directory "Files for Dependencies".
++ Pass: Copy directory "Files for Dependencies".
 
-  This test was not run because of an earlier failing test.
 
-+ Skip: Check that directory "labs" exists.
 
-  This test was not run because of an earlier failing test.
++ Pass: Check that directory "labs" exists.
 
-+ Skip: Check that directory "labs/lab10_advanced_git" exists.
-
-  This test was not run because of an earlier failing test.
++ Pass: Check that directory "labs/lab10_advanced_git" exists.
 
 
 #### Essential Files Exist
 
-+ Skip: Check that directory "project" exists.
++ Pass: Check that directory "project" exists.
 
-  This test was not run because of an earlier failing test.
++ Pass: Copy directory "Files for Testing".
 
-+ Skip: Copy directory "Files for Testing".
 
-  This test was not run because of an earlier failing test.
 
-+ Skip: Change into directory "project".
++ Pass: Change into directory "project".
 
-  This test was not run because of an earlier failing test.
-
-+ Skip: Check that file "Makefile" exists.
-
-  This test was not run because of an earlier failing test.
++ Pass: Check that file "Makefile" exists.
 
 
 ### Test that code compiles and creates the exectuable
 
-+ Skip: Check that make compiles.
++ Pass: Check that make compiles.
 
-  This test was not run because of an earlier failing test.
+
 
