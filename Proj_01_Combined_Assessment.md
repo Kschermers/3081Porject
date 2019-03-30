@@ -2,15 +2,12 @@
 
 #### Total score: _0.0_ / _15_
 
-Run on March 28, 23:25:10 PM.
+Run on March 29, 22:27:51 PM.
 
 
 ### Partial Combined Scores (15% of the Iteration 1 Grade)
 
-+  _0_ / _5_ : Fail: [Design & Documentation + Features](Proj_01_DesignDoc_Assessment.md) - 5%
-
-<pre>Not Graded
-</pre>
++  _0.0_ / _5_ : Pass: [Design & Documentation + Features](Proj_01_DesignDoc_Assessment.md) - 5%
 
 
 
