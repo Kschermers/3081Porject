@@ -4,8 +4,8 @@
  * @copyright 2017 3081 Staff, All rights reserved.
  */
 
-#ifndef SRC_PARAMS_H_
-#define SRC_PARAMS_H_
+#ifndef PROJECT_SRC_PARAMS_H_
+#define PROJECT_SRC_PARAMS_H_
 
 /*******************************************************************************
  * Includes
@@ -77,4 +77,4 @@
 #define LIGHT_COLOR \
   { 255, 255, 255 }
 
-#endif  // SRC_PARAMS_H_
+#endif  // PROJECT_SRC_PARAMS_H_

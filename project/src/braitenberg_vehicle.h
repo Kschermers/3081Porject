@@ -4,8 +4,8 @@
  * @copyright 2017 3081 Staff, All rights reserved.
  */
 
-#ifndef SRC_BRAITENBERG_VEHICLE_H_
-#define SRC_BRAITENBERG_VEHICLE_H_
+#ifndef PROJECT_SRC_BRAITENBERG_VEHICLE_H_
+#define PROJECT_SRC_BRAITENBERG_VEHICLE_H_
 
 /*******************************************************************************
  * Includes
@@ -114,4 +114,4 @@ class BraitenbergVehicle : public ArenaMobileEntity {
 
 NAMESPACE_END(csci3081);
 
-#endif  // SRC_BRAITENBERG_VEHICLE_H_
+#endif  // PROJECT_SRC_BRAITENBERG_VEHICLE_H_

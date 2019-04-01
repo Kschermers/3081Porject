@@ -4,8 +4,8 @@
  * @copyright 2019 Kadin Schermers
  */
 
-#ifndef SRC_MAINPAGE_H_
-#define SRC_MAINPAGE_H_
+#ifndef PROJECT_SRC_MAINPAGE_H_
+#define PROJECT_SRC_MAINPAGE_H_
 
 
-#endif  // SRC_MAINPAGE_H_
+#endif  // PROJECT_SRC_MAINPAGE_H_

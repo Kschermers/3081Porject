@@ -4,8 +4,8 @@
  * @copyright 2017 3081 Staff, All rights reserved.
  */
 
-#ifndef SRC_ARENA_H_
-#define SRC_ARENA_H_
+#ifndef PROJECT_SRC_ARENA_H_
+#define PROJECT_SRC_ARENA_H_
 
 /*******************************************************************************
  * Includes
@@ -161,4 +161,4 @@ class Arena {
 
 NAMESPACE_END(csci3081);
 
-#endif  // SRC_ARENA_H_
+#endif  // PROJECT_SRC_ARENA_H_

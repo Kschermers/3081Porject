@@ -4,8 +4,8 @@
  * @copyright 2019 Kadin Schermers
  */
 
-#ifndef SRC_FOOD_FACTORY_H_
-#define SRC_FOOD_FACTORY_H_
+#ifndef PROJECT_SRC_FOOD_FACTORY_H_
+#define PROJECT_SRC_FOOD_FACTORY_H_
 
 /*******************************************************************************
  * Includes
@@ -45,4 +45,4 @@ class FoodFactory : public ArenaEntityFactory {
 
 NAMESPACE_END(csci3081);
 
-#endif /* SRC_FOOD_FACTORY_H_ */
+#endif /* PROJECT_SRC_FOOD_FACTORY_H_ */

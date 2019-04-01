@@ -4,8 +4,8 @@
  * @copyright 2017 3081 Staff, All rights reserved.
  */
 
-#ifndef SRC_LIGHT_H_
-#define SRC_LIGHT_H_
+#ifndef PROJECT_SRC_LIGHT_H_
+#define PROJECT_SRC_LIGHT_H_
 
 /*******************************************************************************
  * Includes
@@ -69,4 +69,4 @@ class Light : public ArenaMobileEntity {
 
 NAMESPACE_END(csci3081);
 
-#endif  // SRC_LIGHT_H_
+#endif  // PROJECT_SRC_LIGHT_H_
