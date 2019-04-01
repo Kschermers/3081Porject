@@ -39,8 +39,8 @@ Arena::Arena(): x_dim_(X_DIM),
 Arena::Arena(json_object* arena_object): x_dim_(X_DIM),
       y_dim_(Y_DIM),
       entities_(),
-      mobile_entities_(),
-      light_sensors_() {
+      mobile_entities_()
+       {
   FoodFactory* foodFac = new FoodFactory();
   LightFactory* lightFac = new LightFactory();
   BraitenbergVehicleFactory* BVFac = new BraitenbergVehicleFactory();

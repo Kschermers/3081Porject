@@ -88,6 +88,10 @@ class BraitenbergVehicle : public ArenaMobileEntity {
 
   void set_food_behavior(Behavior behavior) { food_behavior_ = behavior; }
 
+  Behavior get_bv_behavior() { return bv_behavior_; }
+
+  void set_bv_behavior(Behavior behavior) { bv_behavior_ = behavior; }
+
   double get_sensor_reading_left(const ArenaEntity* entity);
 
   double get_sensor_reading_right(const ArenaEntity* entity);
@@ -100,8 +104,10 @@ class BraitenbergVehicle : public ArenaMobileEntity {
   WheelVelocity wheel_velocity_;
   Behavior light_behavior_;
   Behavior food_behavior_;
+  Behavior bv_behavior_;
   const ArenaEntity* closest_light_entity_;
   const ArenaEntity* closest_food_entity_;
+  const ArenaEntity* closest_bv_entity_;
   double defaultSpeed_;
   int turnCount = -1;
 };
