@@ -271,10 +271,28 @@ void BraitenbergVehicle::Update() {
     set_color(robocolor);
   }
   if (numBehaviors) {
-    wheel_velocity_ = WheelVelocity(
-      (light_wheel_velocity->left + food_wheel_velocity->left + bv_wheel_velocity->left)/numBehaviors,
-      (light_wheel_velocity->right + food_wheel_velocity->right + bv_wheel_velocity->right)/numBehaviors,
-      defaultSpeed_);
+    if (light_wheel_velocity != NULL && food_wheel_velocity != NULL && bv_wheel_velocity != NULL) {
+      wheel_velocity_ = WheelVelocity(
+        (light_wheel_velocity->left + food_wheel_velocity->left + bv_wheel_velocity->left)/numBehaviors,
+        (light_wheel_velocity->right + food_wheel_velocity->right + bv_wheel_velocity->right)/numBehaviors,
+        defaultSpeed_);
+      } else if (light_wheel_velocity != NULL && food_wheel_velocity != NULL) {
+        wheel_velocity_ = WheelVelocity(
+          (light_wheel_velocity->left + food_wheel_velocity->left)/numBehaviors,
+          (light_wheel_velocity->right + food_wheel_velocity->right)/numBehaviors,
+          defaultSpeed_);
+      } else if (light_wheel_velocity != NULL && bv_wheel_velocity != NULL) {
+        wheel_velocity_ = WheelVelocity(
+          (light_wheel_velocity->left + bv_wheel_velocity->left)/numBehaviors,
+          (light_wheel_velocity->right + bv_wheel_velocity->right)/numBehaviors,
+          defaultSpeed_);
+      } else if (food_wheel_velocity != NULL && bv_wheel_velocity != NULL) {
+        wheel_velocity_ = WheelVelocity(
+          (bv_wheel_velocity->left + food_wheel_velocity->left)/numBehaviors,
+          (bv_wheel_velocity->right + food_wheel_velocity->right)/numBehaviors,
+          defaultSpeed_);
+      }
+
   } else {
     wheel_velocity_ = WheelVelocity(0, 0);
   }
