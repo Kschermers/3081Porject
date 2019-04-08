@@ -19,6 +19,8 @@
 #include "src/motion_behavior_differential.h"
 #include "src/wheel_velocity.h"
 #include "src/behavior_enum.h"
+#include "src/observer.h"
+#include "src/subject.h"
 
 
 /*******************************************************************************
@@ -37,7 +39,7 @@ NAMESPACE_BEGIN(csci3081);
  * up in four different ways, and thus they can exhibit four different behaviors
  */
 
-class BraitenbergVehicle : public ArenaMobileEntity {
+class BraitenbergVehicle : public ArenaMobileEntity, public Subject {
  public:
   /**
    * @brief Default constructor.
@@ -61,6 +63,12 @@ class BraitenbergVehicle : public ArenaMobileEntity {
   void TimestepUpdate(unsigned int dt) override;
 
   void Update() override;
+
+  void SubscribeTo(Observer* o) override;
+
+  void UnsubscribeTo() override;
+
+  void NotifyObserver() override;
 
   /**
    * @brief Change the movement state of the BraitenbergVehicle.
@@ -101,6 +109,7 @@ class BraitenbergVehicle : public ArenaMobileEntity {
  private:
   std::vector<Pose> light_sensors_;
   MotionBehaviorDifferential * motion_behavior_{nullptr};
+  Observer* observer_;
   WheelVelocity wheel_velocity_;
   Behavior light_behavior_;
   Behavior food_behavior_;
@@ -108,6 +117,10 @@ class BraitenbergVehicle : public ArenaMobileEntity {
   const ArenaEntity* closest_light_entity_;
   const ArenaEntity* closest_food_entity_;
   const ArenaEntity* closest_bv_entity_;
+  WheelVelocity* light_wheel_velocity;
+  WheelVelocity* food_wheel_velocity;
+  WheelVelocity* bv_wheel_velocity;
+
   double defaultSpeed_;
   int turnCount = -1;
 };

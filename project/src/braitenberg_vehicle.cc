@@ -29,9 +29,10 @@ int BraitenbergVehicle::count = 0;
  ******************************************************************************/
 
 BraitenbergVehicle::BraitenbergVehicle() :
-  light_sensors_(), wheel_velocity_(), light_behavior_(kNone),
+  light_sensors_(), observer_(), wheel_velocity_(), light_behavior_(kNone),
   food_behavior_(kNone), bv_behavior_(kNone), closest_light_entity_(NULL),
-  closest_food_entity_(NULL), closest_bv_entity_(NULL), defaultSpeed_(5.0) {
+  closest_food_entity_(NULL), closest_bv_entity_(NULL), light_wheel_velocity(),
+  food_wheel_velocity(), bv_wheel_velocity(), defaultSpeed_(5.0) {
   set_type(kBraitenberg);
   motion_behavior_ = new MotionBehaviorDifferential(this);
   light_sensors_.push_back(Pose());
@@ -100,7 +101,7 @@ void BraitenbergVehicle::SenseEntity(const ArenaEntity& entity) {
 }
 
 void BraitenbergVehicle::Update() {
-  WheelVelocity light_wheel_velocity = WheelVelocity(0, 0);
+
   ExploreBehavior exBev = ExploreBehavior();
   LoveBehavior lvBev = LoveBehavior();
   AggresiveBehavior agBev = AggresiveBehavior();
@@ -151,10 +152,9 @@ void BraitenbergVehicle::Update() {
       numBehaviors--;
       break;
 
-      light_wheel_velocity = *light_for_switch;
+      light_wheel_velocity = light_for_switch;
   }
 
-  WheelVelocity food_wheel_velocity = WheelVelocity(0, 0);
   WheelVelocity* food_for_switch = new WheelVelocity(0, 0);
 
   switch (food_behavior_) {
@@ -199,10 +199,9 @@ void BraitenbergVehicle::Update() {
       numBehaviors--;
       break;
 
-      food_wheel_velocity = *food_for_switch;
+      food_wheel_velocity = food_for_switch;
   }
 
-  WheelVelocity bv_wheel_velocity = WheelVelocity(0, 0);
   WheelVelocity* bv_for_switch = new WheelVelocity(0, 0);
 
   switch (bv_behavior_) {
@@ -247,7 +246,7 @@ void BraitenbergVehicle::Update() {
       numBehaviors--;
       break;
 
-      bv_wheel_velocity = *bv_for_switch;
+      bv_wheel_velocity = bv_for_switch;
   }
 
   RgbColor robocolor;
@@ -273,12 +272,13 @@ void BraitenbergVehicle::Update() {
   }
   if (numBehaviors) {
     wheel_velocity_ = WheelVelocity(
-      (light_wheel_velocity.left + food_wheel_velocity.left + bv_wheel_velocity.left)/numBehaviors,
-      (light_wheel_velocity.right + food_wheel_velocity.right + bv_wheel_velocity.right)/numBehaviors,
+      (light_wheel_velocity->left + food_wheel_velocity->left + bv_wheel_velocity->left)/numBehaviors,
+      (light_wheel_velocity->right + food_wheel_velocity->right + bv_wheel_velocity->right)/numBehaviors,
       defaultSpeed_);
   } else {
     wheel_velocity_ = WheelVelocity(0, 0);
   }
+  NotifyObserver();
 }
 
 std::string BraitenbergVehicle::get_name() const {
@@ -341,6 +341,20 @@ void BraitenbergVehicle::LoadFromObject(const json_object* entity_config) {
   }
 
   UpdateLightSensors();
+}
+
+void BraitenbergVehicle::SubscribeTo(Observer* o) {
+  observer_ = o;
+}
+
+void BraitenbergVehicle::UnsubscribeTo() {
+  observer_ = NULL;
+}
+
+void BraitenbergVehicle::NotifyObserver() {
+  if (observer_ != NULL) {
+    observer_->UpdateOb(light_wheel_velocity, food_wheel_velocity, bv_wheel_velocity);
+  }
 }
 
 NAMESPACE_END(csci3081);

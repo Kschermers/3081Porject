@@ -10,10 +10,11 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <sstream>
+#include <iomanip>
 
 #include "src/graphics_arena_viewer.h"
 #include "src/rgb_color.h"
-#include "src/braitenberg_vehicle.h"
 
 /*******************************************************************************
  * Namespaces
@@ -35,7 +36,14 @@ GraphicsArenaViewer::GraphicsArenaViewer(
     xOffset_(0),
     nanogui_intialized_(false),
     gui(nullptr),
-    window() {
+    window(),
+    light_wheel_left(),
+    light_wheel_right(),
+    food_wheel_left(),
+    food_wheel_right(),
+    bv_wheel_left(),
+    bv_wheel_right(),
+    observed_bv() {
       xOffset_ = GUI_MENU_WIDTH + GUI_MENU_GAP;
 }
 
@@ -220,6 +228,24 @@ void GraphicsArenaViewer::DrawUsingNanoVG(NVGcontext *ctx) {
   // DrawRobot(ctx, arena_->robot());
 }
 
+std::string GraphicsArenaViewer::formatValue(float val) {
+  std::stringstream ss;
+  ss << std::fixed << std::setprecision(2) << val;
+  return ss.str();
+}
+
+void GraphicsArenaViewer::UpdateOb(
+  WheelVelocity* light_wheel_,
+  WheelVelocity* food_wheel_,
+  WheelVelocity* bv_wheel_) {
+  light_wheel_left -> setValue(formatValue(light_wheel_->left));
+  light_wheel_right -> setValue(formatValue(light_wheel_->right));
+  food_wheel_left -> setValue(formatValue(food_wheel_->left));
+  food_wheel_right -> setValue(formatValue(food_wheel_->right));
+  bv_wheel_left -> setValue(formatValue(bv_wheel_->left));
+  bv_wheel_right -> setValue(formatValue(bv_wheel_->right));
+}
+
 void GraphicsArenaViewer::AddEntityPanel(nanogui::Widget * panel) {
   if (arena_->get_entities().size() == 0) {
     return;
@@ -295,6 +321,43 @@ void GraphicsArenaViewer::AddEntityPanel(nanogui::Widget * panel) {
   space->setVisible(false);
   sliderPanel->setVisible(false);
 
+  // ******* Create the Wheel Velocity Grid  ******** //
+  robotWidgets.push_back(new nanogui::Label(
+    panel, "Wheel Velocities", "sans-bold"));
+    nanogui::Widget* grid = new nanogui::Widget(panel);
+
+    // A grid with 3 columns
+    grid->setLayout(
+      new nanogui::GridLayout(nanogui::Orientation::Horizontal, 3,
+      nanogui::Alignment::Middle, /*int margin = */0, /*int spacing = */0));
+    robotWidgets.push_back(grid);
+
+    // Columns Headers Row
+    // Notice that it is assigning these items to grid locations row by row
+    new nanogui::Label(grid, "", "sans-bold");
+    new nanogui::Label(grid, "Left", "sans-bold");
+    new nanogui::Label(grid, "Right", "sans-bold");
+
+    // Next Row for wheel velocities from light behavior
+    new nanogui::Label(grid, "Light", "sans-bold");
+    light_wheel_left = new nanogui::TextBox(grid, "0.0");
+    light_wheel_left->setFixedWidth(75);
+    light_wheel_right = new nanogui::TextBox(grid, "0.0");
+    light_wheel_right->setFixedWidth(75);
+
+    new nanogui::Label(grid, "Food", "sans-bold");
+    food_wheel_left = new nanogui::TextBox(grid, "0.0");
+    food_wheel_left->setFixedWidth(75);
+    food_wheel_right = new nanogui::TextBox(grid, "0.0");
+    food_wheel_right->setFixedWidth(75);
+
+    new nanogui::Label(grid, "BV", "sans-bold");
+    bv_wheel_left = new nanogui::TextBox(grid, "0.0");
+    bv_wheel_left->setFixedWidth(75);
+    bv_wheel_right = new nanogui::TextBox(grid, "0.0");
+    bv_wheel_right->setFixedWidth(75);
+
+
   for (unsigned int f = 0; f < robotWidgets.size(); f++) {
     robotWidgets[f]->setVisible(defaultEntity->get_type() == kBraitenberg);
   }
@@ -304,6 +367,12 @@ void GraphicsArenaViewer::AddEntityPanel(nanogui::Widget * panel) {
       static_cast<BraitenbergVehicle*>(defaultEntity)->get_light_behavior());
     foodBehaviorSelect->setSelectedIndex(
       static_cast<BraitenbergVehicle*>(defaultEntity)->get_food_behavior());
+
+      if (observed_bv != NULL) {
+        observed_bv->UnsubscribeTo();
+      }
+      static_cast<BraitenbergVehicle*>(defaultEntity)->SubscribeTo(this);
+      observed_bv = static_cast<BraitenbergVehicle*>(defaultEntity);
   }
 
   entitySelect->setCallback(
@@ -327,6 +396,8 @@ void GraphicsArenaViewer::AddEntityPanel(nanogui::Widget * panel) {
           static_cast<BraitenbergVehicle*>(entity)->get_light_behavior());
         foodBehaviorSelect->setSelectedIndex(
           static_cast<BraitenbergVehicle*>(entity)->get_food_behavior());
+
+
       }
 
       screen()->performLayout();

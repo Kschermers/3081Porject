@@ -22,12 +22,12 @@ NAMESPACE_BEGIN(csci3081);
 /**
  * @brief default constructor for BraitenbergVehicleFactory
  */
-  BraitenbergVehicleFactory::BraitenbergVehicleFactory() {}
+  BraitenbergVehicleFactory::BraitenbergVehicleFactory() {};
 
 /**
  * @brief destructor for BraitenbergVehicleFactory
  */
-  BraitenbergVehicleFactory::~BraitenbergVehicleFactory() {}
+  BraitenbergVehicleFactory::~BraitenbergVehicleFactory() {};
 
 /*******************************************************************************
  * Class Methods
@@ -40,6 +40,6 @@ ArenaEntity* BraitenbergVehicleFactory::create(
     BraitenbergVehicle* bv = new BraitenbergVehicle();
     bv->LoadFromObject(&entity_config);
     return bv;
-  }
+}
 
 NAMESPACE_END(csci3081);
