@@ -1,6 +1,6 @@
 ### Feedback for Proj 02
 
-Run on April 08, 18:45:39 PM.
+Run on April 08, 22:11:36 PM.
 
 + Pass: Checkout devel branch.
 
@@ -57,13 +57,13 @@ Commits found=50
 
 + Pass: Run git ls-remote gather all branches in repo
 
-78dcff2ad017699555dc30a729d09744e7723363	refs/heads/devel
+aeb161923ea0a6b09252911fb7db7c9b534b73f9	refs/heads/devel
 
 8ff74716127fe44df4f1e5bbc7ed8ac04e0c5ef8	refs/heads/fix/01-compilation-errors
 
 8ff74716127fe44df4f1e5bbc7ed8ac04e0c5ef8	refs/heads/fix/02-robot-collision-error
 
-9dae8aab9cbb090d067b541e5b27c6d4c1cc1640	refs/heads/master
+b25c99151d8a4ac530dab1c3f0e7b67cc690a17b	refs/heads/master
 
 40ba70ffd31a9639d7e0192c259788aef403ae41	refs/heads/pre-release/iteration1
 
@@ -107,32 +107,6 @@ fc9f4cd39fb0c68686fcf8b79ce1359abe7fdd06	refs/heads/test/factory-pattern-tests
 make[1]: Entering directory '/classes/grades/Spring-2019/csci3081/dtorban/csci3081-grading-env/grading-scripts/grading/Proj_02_Full_Feedback/repo-scher528/project/src'
 ==== Checking style is correct ====
 /classes/grades/Spring-2019/csci3081/dtorban/csci3081-grading-env/grading-scripts/grading/Proj_02_Full_Feedback/repo-scher528/cpplint/cpplint.py --root=.. *.cc *.h
-aggresive_behavior.cc:16:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
-aggresive_behavior.cc:24:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
-aggresive_behavior.cc:29:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
-aggresive_behavior.cc:35:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
-aggresive_behavior.cc:36:  Missing space after ,  [whitespace/comma] [3]
-arena.cc:43:  { should almost always be at the end of the previous line  [whitespace/braces] [4]
-braitenberg_vehicle.cc:104:  Redundant blank line at the start of a code block should be deleted.  [whitespace/blank_line] [2]
-braitenberg_vehicle.cc:114:  Redundant blank line at the start of a code block should be deleted.  [whitespace/blank_line] [2]
-braitenberg_vehicle.cc:161:  Redundant blank line at the start of a code block should be deleted.  [whitespace/blank_line] [2]
-braitenberg_vehicle.cc:208:  Redundant blank line at the start of a code block should be deleted.  [whitespace/blank_line] [2]
-braitenberg_vehicle.cc:274:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
-braitenberg_vehicle.cc:276:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
-braitenberg_vehicle.cc:277:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
-braitenberg_vehicle.cc:282:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
-braitenberg_vehicle.cc:374:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
-braitenberg_vehicle_factory.cc:25:  You don't need a ; after a }  [readability/braces] [4]
-braitenberg_vehicle_factory.cc:30:  You don't need a ; after a }  [readability/braces] [4]
-coward_behavior.cc:16:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
-coward_behavior.cc:35:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
-coward_behavior.cc:36:  Missing space after ,  [whitespace/comma] [3]
-explore_behavior.cc:17:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
-explore_behavior.cc:35:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
-explore_behavior.cc:36:  Missing space after ,  [whitespace/comma] [3]
-love_behavior.cc:17:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
-love_behavior.cc:35:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
-love_behavior.cc:36:  Missing space after ,  [whitespace/comma] [3]
 aggresive_behavior.h:7:  #ifndef header guard has wrong style, please use: SRC_AGGRESIVE_BEHAVIOR_H_  [build/header_guard] [5]
 aggresive_behavior.h:51:  #endif line should be "#endif  // SRC_AGGRESIVE_BEHAVIOR_H_"  [build/header_guard] [5]
 arena_entity_factory.h:7:  #ifndef header guard has wrong style, please use: SRC_ARENA_ENTITY_FACTORY_H_  [build/header_guard] [5]
@@ -170,8 +144,7 @@ food_factory.h:48:  #endif line should be "#endif  // SRC_FOOD_FACTORY_H_"  [bui
 food.h:7:  #ifndef header guard has wrong style, please use: SRC_FOOD_H_  [build/header_guard] [5]
 food.h:77:  #endif line should be "#endif  // SRC_FOOD_H_"  [build/header_guard] [5]
 graphics_arena_viewer.h:7:  #ifndef header guard has wrong style, please use: SRC_GRAPHICS_ARENA_VIEWER_H_  [build/header_guard] [5]
-graphics_arena_viewer.h:278:  #endif line should be "#endif  // SRC_GRAPHICS_ARENA_VIEWER_H_"  [build/header_guard] [5]
-graphics_arena_viewer.h:59:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+graphics_arena_viewer.h:280:  #endif line should be "#endif  // SRC_GRAPHICS_ARENA_VIEWER_H_"  [build/header_guard] [5]
 light_factory.h:7:  #ifndef header guard has wrong style, please use: SRC_LIGHT_FACTORY_H_  [build/header_guard] [5]
 light_factory.h:48:  #endif line should be "#endif  // SRC_LIGHT_FACTORY_H_"  [build/header_guard] [5]
 light.h:7:  #ifndef header guard has wrong style, please use: SRC_LIGHT_H_  [build/header_guard] [5]
@@ -185,32 +158,17 @@ motion_behavior_differential.h:87:  #endif line should be "#endif  // SRC_MOTION
 motion_behavior.h:7:  #ifndef header guard has wrong style, please use: SRC_MOTION_BEHAVIOR_H_  [build/header_guard] [5]
 motion_behavior.h:64:  #endif line should be "#endif  // SRC_MOTION_BEHAVIOR_H_"  [build/header_guard] [5]
 observer.h:6:  #ifndef header guard has wrong style, please use: SRC_OBSERVER_H_  [build/header_guard] [5]
-observer.h:0:  #endif line should be "#endif  // SRC_OBSERVER_H_"  [build/header_guard] [5]
-observer.h:22:  Do not leave a blank line after "public:"  [whitespace/blank_line] [3]
-observer.h:23:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
-observer.h:23:  You don't need a ; after a }  [readability/braces] [4]
-observer.h:25:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
-observer.h:25:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
-observer.h:29:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+observer.h:31:  #endif line should be "#endif  // SRC_OBSERVER_H_"  [build/header_guard] [5]
 params.h:7:  #ifndef header guard has wrong style, please use: SRC_PARAMS_H_  [build/header_guard] [5]
 params.h:80:  #endif line should be "#endif  // SRC_PARAMS_H_"  [build/header_guard] [5]
 pose.h:7:  #ifndef header guard has wrong style, please use: SRC_POSE_H_  [build/header_guard] [5]
 pose.h:95:  #endif line should be "#endif  // SRC_POSE_H_"  [build/header_guard] [5]
+predator.h:7:  #ifndef header guard has wrong style, please use: SRC_PREDATOR_H_  [build/header_guard] [5]
+predator.h:34:  #endif line should be "#endif  // SRC_PREDATOR_H_"  [build/header_guard] [5]
 rgb_color.h:7:  #ifndef header guard has wrong style, please use: SRC_RGB_COLOR_H_  [build/header_guard] [5]
 rgb_color.h:78:  #endif line should be "#endif  // SRC_RGB_COLOR_H_"  [build/header_guard] [5]
 subject.h:6:  #ifndef header guard has wrong style, please use: SRC_SUBJECT_H_  [build/header_guard] [5]
-subject.h:37:  #endif line should be "#endif  // SRC_SUBJECT_H_"  [build/header_guard] [5]
-subject.h:6:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
-subject.h:7:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
-subject.h:8:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
-subject.h:8:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-subject.h:22:  Redundant blank line at the start of a code block should be deleted.  [whitespace/blank_line] [2]
-subject.h:24:  Do not leave a blank line after "public:"  [whitespace/blank_line] [3]
-subject.h:25:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
-subject.h:27:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
-subject.h:29:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
-subject.h:31:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
-subject.h:32:  Redundant blank line at the end of a code block should be deleted.  [whitespace/blank_line] [3]
+subject.h:34:  #endif line should be "#endif  // SRC_SUBJECT_H_"  [build/header_guard] [5]
 wheel_velocity.h:7:  #ifndef header guard has wrong style, please use: SRC_WHEEL_VELOCITY_H_  [build/header_guard] [5]
 wheel_velocity.h:74:  #endif line should be "#endif  // SRC_WHEEL_VELOCITY_H_"  [build/header_guard] [5]
 Done processing aggresive_behavior.cc
@@ -229,6 +187,7 @@ Done processing love_behavior.cc
 Done processing main.cc
 Done processing motion_behavior.cc
 Done processing motion_behavior_differential.cc
+Done processing predator.cc
 Done processing rgb_color.cc
 Done processing aggresive_behavior.h
 Done processing arena_entity_factory.h
@@ -258,10 +217,11 @@ Done processing motion_behavior.h
 Done processing observer.h
 Done processing params.h
 Done processing pose.h
+Done processing predator.h
 Done processing rgb_color.h
 Done processing subject.h
 Done processing wheel_velocity.h
-Total errors found: 106
+Total errors found: 64
 Makefile:162: recipe for target 'check-style' failed
 make[1]: *** [check-style] Error 1
 make[1]: Leaving directory '/classes/grades/Spring-2019/csci3081/dtorban/csci3081-grading-env/grading-scripts/grading/Proj_02_Full_Feedback/repo-scher528/project/src'
