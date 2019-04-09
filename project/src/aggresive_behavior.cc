@@ -13,7 +13,7 @@
 /*******************************************************************************
  * Namespaces
  ******************************************************************************/
- NAMESPACE_BEGIN(csci3081);
+NAMESPACE_BEGIN(csci3081);
 
  /*******************************************************************************
   * Constructors/Destructor
@@ -21,19 +21,23 @@
  /**
   * @brief constructor
   */
-   AggresiveBehavior::AggresiveBehavior() {}
+  AggresiveBehavior::AggresiveBehavior() {}
 
  /**
   * @brief destructor
   */
-   AggresiveBehavior::~AggresiveBehavior() {}
+  AggresiveBehavior::~AggresiveBehavior() {}
 
 /*******************************************************************************
  * Class Methods
  ******************************************************************************/
 
-void AggresiveBehavior::getWheelVelocity(double rsr, double lsr, double speed, WheelVelocity* wv_ptr) {
-    *wv_ptr = WheelVelocity(rsr,lsr,speed);
+void AggresiveBehavior::getWheelVelocity(
+  double rsr,
+  double lsr,
+  double speed,
+  WheelVelocity* wv_ptr) {
+    *wv_ptr = WheelVelocity(rsr, lsr, speed);
 }
 
 NAMESPACE_END(csci3081);

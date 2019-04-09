@@ -101,7 +101,6 @@ void BraitenbergVehicle::SenseEntity(const ArenaEntity& entity) {
 }
 
 void BraitenbergVehicle::Update() {
-
   ExploreBehavior exBev = ExploreBehavior();
   LoveBehavior lvBev = LoveBehavior();
   AggresiveBehavior agBev = AggresiveBehavior();
@@ -111,7 +110,6 @@ void BraitenbergVehicle::Update() {
   WheelVelocity* light_for_switch = new WheelVelocity(0, 0);
 
   switch (light_behavior_) {
-
     case kExplore:
 
       exBev.getWheelVelocity(
@@ -158,7 +156,6 @@ void BraitenbergVehicle::Update() {
   WheelVelocity* food_for_switch = new WheelVelocity(0, 0);
 
   switch (food_behavior_) {
-
     case kExplore:
 
       exBev.getWheelVelocity(
@@ -205,7 +202,6 @@ void BraitenbergVehicle::Update() {
   WheelVelocity* bv_for_switch = new WheelVelocity(0, 0);
 
   switch (bv_behavior_) {
-
     case kExplore:
 
       exBev.getWheelVelocity(
@@ -271,15 +267,23 @@ void BraitenbergVehicle::Update() {
     set_color(robocolor);
   }
   if (numBehaviors) {
-    if (light_wheel_velocity != NULL && food_wheel_velocity != NULL && bv_wheel_velocity != NULL) {
+    if (light_wheel_velocity != NULL
+      && food_wheel_velocity != NULL
+      && bv_wheel_velocity != NULL) {
       wheel_velocity_ = WheelVelocity(
-        (light_wheel_velocity->left + food_wheel_velocity->left + bv_wheel_velocity->left)/numBehaviors,
-        (light_wheel_velocity->right + food_wheel_velocity->right + bv_wheel_velocity->right)/numBehaviors,
+        (light_wheel_velocity->left
+          + food_wheel_velocity->left
+          + bv_wheel_velocity->left)/numBehaviors,
+        (light_wheel_velocity->right
+          + food_wheel_velocity->right
+          + bv_wheel_velocity->right)/numBehaviors,
         defaultSpeed_);
       } else if (light_wheel_velocity != NULL && food_wheel_velocity != NULL) {
         wheel_velocity_ = WheelVelocity(
-          (light_wheel_velocity->left + food_wheel_velocity->left)/numBehaviors,
-          (light_wheel_velocity->right + food_wheel_velocity->right)/numBehaviors,
+          (light_wheel_velocity->left
+            + food_wheel_velocity->left)/numBehaviors,
+          (light_wheel_velocity->right
+            + food_wheel_velocity->right)/numBehaviors,
           defaultSpeed_);
       } else if (light_wheel_velocity != NULL && bv_wheel_velocity != NULL) {
         wheel_velocity_ = WheelVelocity(
@@ -371,7 +375,10 @@ void BraitenbergVehicle::UnsubscribeTo() {
 
 void BraitenbergVehicle::NotifyObserver() {
   if (observer_ != NULL) {
-    observer_->UpdateOb(light_wheel_velocity, food_wheel_velocity, bv_wheel_velocity);
+    observer_->UpdateOb(
+      light_wheel_velocity,
+      food_wheel_velocity,
+       bv_wheel_velocity);
   }
 }
 

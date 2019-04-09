@@ -22,12 +22,12 @@ NAMESPACE_BEGIN(csci3081);
 /**
  * @brief default constructor for BraitenbergVehicleFactory
  */
-  BraitenbergVehicleFactory::BraitenbergVehicleFactory() {};
+  BraitenbergVehicleFactory::BraitenbergVehicleFactory() {}
 
 /**
  * @brief destructor for BraitenbergVehicleFactory
  */
-  BraitenbergVehicleFactory::~BraitenbergVehicleFactory() {};
+  BraitenbergVehicleFactory::~BraitenbergVehicleFactory() {}
 
 /*******************************************************************************
  * Class Methods

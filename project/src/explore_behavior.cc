@@ -14,7 +14,7 @@
 /*******************************************************************************
  * Namespaces
  ******************************************************************************/
- NAMESPACE_BEGIN(csci3081);
+NAMESPACE_BEGIN(csci3081);
 
   /*******************************************************************************
    * Constructors/Destructor
@@ -32,8 +32,12 @@
  * Class Methods
  ******************************************************************************/
 
-void ExploreBehavior::getWheelVelocity(double rsr, double lsr, double speed, WheelVelocity* wv_ptr) {
-    *wv_ptr = WheelVelocity(1.0/rsr,1.0/lsr,speed);
+void ExploreBehavior::getWheelVelocity(
+  double rsr,
+  double lsr,
+  double speed,
+  WheelVelocity* wv_ptr) {
+    *wv_ptr = WheelVelocity(1.0/rsr, 1.0/lsr, speed);
 }
 
 NAMESPACE_END(csci3081);

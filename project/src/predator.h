@@ -1,31 +1,34 @@
 /**
-* @file observer.h
+* @file predator.h
 *
 * @copyright 2019 Kadin Schermers
 */
-#ifndef PROJECT_SRC_OBSERVER_H_
-#define PROJECT_SRC_OBSERVER_H_
+
+#ifndef PROJECT_SRC_PREDATOR_H_
+#define PROJECT_SRC_PREDATOR_H_
 
 /*******************************************************************************
  * Includes
  ******************************************************************************/
-#include "src/wheel_velocity.h"
+#include "src/braitenberg_vehicle.h"
 
 /*******************************************************************************
  * Namespaces
  ******************************************************************************/
 NAMESPACE_BEGIN(csci3081);
 
+/*******************************************************************************
+ * Class Definitions
+ ******************************************************************************/
 
-class Observer {
+class Predator: public BraitenbergVehicle {
  public:
-  virtual ~Observer() {}
-
-  virtual void UpdateOb(
-     WheelVelocity* light_wheel_,
-     WheelVelocity* food_wheel_,
-     WheelVelocity* bv_wheel_) = 0;
+  /**
+   * @brief Default constructor.
+   */
+  Predator();
 };
 
 NAMESPACE_END(csci3081);
-#endif  // PROJECT_SRC_OBSERVER_H_
+
+#endif  // PROJECT_SRC_PREDATOR_H_
