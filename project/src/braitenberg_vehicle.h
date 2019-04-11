@@ -107,6 +107,7 @@ class BraitenbergVehicle : public ArenaMobileEntity, public Subject {
   static int count;
 
  private:
+  int starving_count_;
   std::vector<Pose> light_sensors_;
   MotionBehaviorDifferential * motion_behavior_{nullptr};
   Observer* observer_;

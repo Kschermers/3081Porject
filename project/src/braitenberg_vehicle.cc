@@ -29,17 +29,18 @@ int BraitenbergVehicle::count = 0;
  ******************************************************************************/
 
 BraitenbergVehicle::BraitenbergVehicle() :
-  light_sensors_(), observer_(), wheel_velocity_(), light_behavior_(kNone),
-  food_behavior_(kNone), bv_behavior_(kNone), closest_light_entity_(NULL),
-  closest_food_entity_(NULL), closest_bv_entity_(NULL), light_wheel_velocity(),
-  food_wheel_velocity(), bv_wheel_velocity(), defaultSpeed_(5.0) {
+  starving_count_(), light_sensors_(), observer_(), wheel_velocity_(),
+  light_behavior_(kNone), food_behavior_(kNone), bv_behavior_(kNone),
+  closest_light_entity_(NULL), closest_food_entity_(NULL),
+  closest_bv_entity_(NULL), light_wheel_velocity(), food_wheel_velocity(),
+  bv_wheel_velocity(), defaultSpeed_(5.0) {
   set_type(kBraitenberg);
   motion_behavior_ = new MotionBehaviorDifferential(this);
   light_sensors_.push_back(Pose());
   light_sensors_.push_back(Pose());
   set_color(BRAITENBERG_COLOR);
   set_pose(ROBOT_INIT_POS);
-
+  starving_count_ = 0;
   wheel_velocity_ = WheelVelocity(0, 0);
 
   // Set ID
@@ -266,6 +267,7 @@ void BraitenbergVehicle::Update() {
 
     set_color(robocolor);
   }
+  if (starving_count_ < 450) {
   if (numBehaviors) {
     if (light_wheel_velocity != NULL
       && food_wheel_velocity != NULL
@@ -296,11 +298,19 @@ void BraitenbergVehicle::Update() {
           (bv_wheel_velocity->right + food_wheel_velocity->right)/numBehaviors,
           defaultSpeed_);
       }
-
+    } else {
+      wheel_velocity_ = WheelVelocity(0, 0);
+    }
+  } else if (starving_count_ > 450 && starving_count_ < 600) {
+    wheel_velocity_ = WheelVelocity(
+      food_wheel_velocity->left,
+      food_wheel_velocity->right,
+      defaultSpeed_);
   } else {
     wheel_velocity_ = WheelVelocity(0, 0);
   }
   NotifyObserver();
+  starving_count_++;
 }
 
 std::string BraitenbergVehicle::get_name() const {
