@@ -77,6 +77,7 @@ void BraitenbergVehicle::SenseEntity(const ArenaEntity& entity) {
     closest_entity_ = &closest_light_entity_;
   } else if (entity.get_type() == kFood) {
     closest_entity_ = &closest_food_entity_;
+    starving_count_ = 0;
   } else if (entity.get_type() == kBraitenberg) {
     closest_entity_ = &closest_bv_entity_;
   }
