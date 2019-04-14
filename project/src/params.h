@@ -4,8 +4,8 @@
  * @copyright 2017 3081 Staff, All rights reserved.
  */
 
-#ifndef SRC_PARAMS_H_
-#define SRC_PARAMS_H_
+#ifndef PROJECT_SRC_PARAMS_H_
+#define PROJECT_SRC_PARAMS_H_
 
 /*******************************************************************************
  * Includes
@@ -24,7 +24,7 @@
 #define X_DIM 1024
 #define Y_DIM 768
 #define TEXT_BOX_WIDTH 50
-#define GUI_MENU_WIDTH 190
+#define GUI_MENU_WIDTH 250
 #define COMBO_BOX_WIDTH 150
 #define GUI_MENU_GAP 10
 
@@ -77,4 +77,4 @@
 #define LIGHT_COLOR \
   { 255, 255, 255 }
 
-#endif  // SRC_PARAMS_H_
+#endif  // PROJECT_SRC_PARAMS_H_

@@ -4,17 +4,21 @@
  * @copyright 2017 3081 Staff, All rights reserved.
  */
 
-#ifndef SRC_GRAPHICS_ARENA_VIEWER_H_
-#define SRC_GRAPHICS_ARENA_VIEWER_H_
+#ifndef PROJECT_SRC_GRAPHICS_ARENA_VIEWER_H_
+#define PROJECT_SRC_GRAPHICS_ARENA_VIEWER_H_
 
 /*******************************************************************************
  * Includes
  ******************************************************************************/
 #include <MinGfx-1.0/mingfx.h>
+#include <string>
 
 #include "src/arena.h"
 #include "src/controller.h"
 #include "src/common.h"
+#include "src/wheel_velocity.h"
+#include "src/braitenberg_vehicle.h"
+#include "src/observer.h"
 
 /*******************************************************************************
  * Namespaces
@@ -52,7 +56,9 @@ class Controller;
  *  Fill in the `Draw*()` methods to draw graphics on the screen using
  *  either the `nanovg` library or raw `OpenGL`.
  */
-class GraphicsArenaViewer : public mingfx::GraphicsApp, public ArenaViewer {
+class GraphicsArenaViewer : public mingfx::GraphicsApp,
+  public ArenaViewer,
+  public Observer {
  public:
   /**
    * @brief Constructor.
@@ -69,6 +75,16 @@ class GraphicsArenaViewer : public mingfx::GraphicsApp, public ArenaViewer {
    * `delete` the contained Arena.
    */
   ~GraphicsArenaViewer() override { delete arena_; }
+
+  /*
+   * @brief Update method for observer
+   */
+  void UpdateOb(
+    WheelVelocity* light_wheel_,
+    WheelVelocity* food_wheel_,
+    WheelVelocity* bv_wheel_) override;
+
+  std::string formatValue(float val);
 
   /** Used to setup the 2D GUI. */
   void InitNanoGUI() override;
@@ -116,7 +132,7 @@ class GraphicsArenaViewer : public mingfx::GraphicsApp, public ArenaViewer {
    * @param[in] delta How far the mouse has moved.
    */
   void OnMouseMove(__unused const mingfx::Point2& pos,
-                   __unused const mingfx::Vector2& delta) override {};
+                   __unused const mingfx::Vector2& delta) override {}
 
   /**
    * @brief Called each time the left mouse button is clicked.
@@ -125,7 +141,7 @@ class GraphicsArenaViewer : public mingfx::GraphicsApp, public ArenaViewer {
    *
    * @param[in] pos The position of the release.
    */
-  void OnLeftMouseDown(__unused const mingfx::Point2& pos) override {};
+  void OnLeftMouseDown(__unused const mingfx::Point2& pos) override {}
 
   /**
    * @brief Called each time the left mouse button is released.
@@ -134,7 +150,7 @@ class GraphicsArenaViewer : public mingfx::GraphicsApp, public ArenaViewer {
    *
    * @param[in] pos The position of the release.
    */
-  void OnLeftMouseUp(__unused const mingfx::Point2& pos) override {};
+  void OnLeftMouseUp(__unused const mingfx::Point2& pos) override {}
 
   /**
    * @brief Called each time the right mouse button is clicked.
@@ -143,7 +159,7 @@ class GraphicsArenaViewer : public mingfx::GraphicsApp, public ArenaViewer {
    *
    * @param[in] pos The position of the release.
    */
-  void OnRightMouseDown(__unused const mingfx::Point2& pos) override {};
+  void OnRightMouseDown(__unused const mingfx::Point2& pos) override {}
 
   /**
    * @brief Called each time the right mouse button is released.
@@ -152,7 +168,7 @@ class GraphicsArenaViewer : public mingfx::GraphicsApp, public ArenaViewer {
    *
    * @param[in] pos The position of the release.
    */
-  void OnRightMouseUp(__unused const mingfx::Point2& pos) override {};
+  void OnRightMouseUp(__unused const mingfx::Point2& pos) override {}
 
   /**
    * @brief Called each time a character key is pressed.
@@ -160,7 +176,7 @@ class GraphicsArenaViewer : public mingfx::GraphicsApp, public ArenaViewer {
    * @param[in] c Character representing a key that was pressed.
    * @param[in] modifiers Any modifier keys that were also pressed.
    */
-  void OnKeyDown(__unused const char *c, __unused int modifiers) override {};
+  void OnKeyDown(__unused const char *c, __unused int modifiers) override {}
 
   /**
    * @brief Called each time a character key is released.
@@ -169,7 +185,7 @@ class GraphicsArenaViewer : public mingfx::GraphicsApp, public ArenaViewer {
    * @param[in] modifiers Any modifier keys that were held with the key.
    */
   void OnKeyUp(
-    __unused const char *c, __unused int modifiers) override { };
+    __unused const char *c, __unused int modifiers) override {}
 
   /**
    * @brief Called each time a special (non-alphabetic) key is pressed.
@@ -189,7 +205,7 @@ class GraphicsArenaViewer : public mingfx::GraphicsApp, public ArenaViewer {
    * @param[in] modifiers Any modifier keys that were also pressed.
    */
   void OnSpecialKeyUp(__unused int key, __unused int scancode,
-                      __unused int modifiers) override {};
+                      __unused int modifiers) override {}
 
   /**
    * @brief Draw the Arena with all of its entities using `nanogui`.
@@ -249,8 +265,16 @@ class GraphicsArenaViewer : public mingfx::GraphicsApp, public ArenaViewer {
   bool nanogui_intialized_;
   nanogui::FormHelper* gui;
   nanogui::ref<nanogui::Window> window;
+
+  nanogui::TextBox* light_wheel_left;
+  nanogui::TextBox* light_wheel_right;
+  nanogui::TextBox* food_wheel_left;
+  nanogui::TextBox* food_wheel_right;
+  nanogui::TextBox* bv_wheel_left;
+  nanogui::TextBox* bv_wheel_right;
+  BraitenbergVehicle* observed_bv;
 };
 
 NAMESPACE_END(csci3081);
 
-#endif  // SRC_GRAPHICS_ARENA_VIEWER_H_
+#endif  // PROJECT_SRC_GRAPHICS_ARENA_VIEWER_H_

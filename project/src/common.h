@@ -4,8 +4,8 @@
  * @copyright 2017 3081 Staff, All rights reserved.
  */
 
-#ifndef SRC_COMMON_H_
-#define SRC_COMMON_H_
+#ifndef PROJECT_SRC_COMMON_H_
+#define PROJECT_SRC_COMMON_H_
 
 /*******************************************************************************
  * Includes
@@ -58,4 +58,4 @@ T random_num(T min, T max) {
   return static_cast<T>(dis(rng));
 }
 
-#endif  // SRC_COMMON_H_
+#endif  // PROJECT_SRC_COMMON_H_

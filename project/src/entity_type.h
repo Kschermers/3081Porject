@@ -4,8 +4,8 @@
  * @copyright 2017 3081 Staff, All rights reserved.
  */
 
-#ifndef SRC_ENTITY_TYPE_H_
-#define SRC_ENTITY_TYPE_H_
+#ifndef PROJECT_SRC_ENTITY_TYPE_H_
+#define PROJECT_SRC_ENTITY_TYPE_H_
 
 /*******************************************************************************
  * Includes
@@ -39,4 +39,4 @@ inline EntityType get_entity_type(const std::string& type) {
 
 NAMESPACE_END(csci3081);
 
-#endif  // SRC_ENTITY_TYPE_H_
+#endif  // PROJECT_SRC_ENTITY_TYPE_H_

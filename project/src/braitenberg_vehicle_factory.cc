@@ -40,6 +40,6 @@ ArenaEntity* BraitenbergVehicleFactory::create(
     BraitenbergVehicle* bv = new BraitenbergVehicle();
     bv->LoadFromObject(&entity_config);
     return bv;
-  }
+}
 
 NAMESPACE_END(csci3081);

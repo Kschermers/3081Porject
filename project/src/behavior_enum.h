@@ -4,8 +4,8 @@
  * @copyright 2017 3081 Staff, All rights reserved.
  */
 
-#ifndef SRC_BEHAVIOR_ENUM_H_
-#define SRC_BEHAVIOR_ENUM_H_
+#ifndef PROJECT_SRC_BEHAVIOR_ENUM_H_
+#define PROJECT_SRC_BEHAVIOR_ENUM_H_
 
 /*******************************************************************************
  * Includes
@@ -52,4 +52,4 @@ inline Behavior get_behavior_type(const std::string& type) {
 
 NAMESPACE_END(csci3081);
 
-#endif  // SRC_BEHAVIOR_ENUM_H_
+#endif  // PROJECT_SRC_BEHAVIOR_ENUM_H_

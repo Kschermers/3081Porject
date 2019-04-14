@@ -4,8 +4,8 @@
  * @copyright 2019 Kadin Schermers
  */
 
-#ifndef SRC_BRAITENBERG_VEHICLE_FACTORY_H_
-#define SRC_BRAITENBERG_VEHICLE_FACTORY_H_
+#ifndef PROJECT_SRC_BRAITENBERG_VEHICLE_FACTORY_H_
+#define PROJECT_SRC_BRAITENBERG_VEHICLE_FACTORY_H_
 
 /*******************************************************************************
  * Includes
@@ -23,7 +23,8 @@ NAMESPACE_BEGIN(csci3081);
  * Class Definitions
  ******************************************************************************/
 /**
- * @brief BraitenbergVehicleFactory factory that creates Braitenberg Vehicle objects
+ * @brief BraitenbergVehicleFactory factory that creates
+ * Braitenberg Vehicle objects
  */
 class BraitenbergVehicleFactory : public ArenaEntityFactory {
  public:
@@ -46,11 +47,12 @@ class BraitenbergVehicleFactory : public ArenaEntityFactory {
   ~BraitenbergVehicleFactory();
 
 /**
- * @brief create method inherited from arena_entity_factory that creates BraitenbergVehicle objects
+ * @brief create method inherited from arena_entity_factory that
+ * creates BraitenbergVehicle objects
  */
   ArenaEntity* create(const json_object& entity_config) override;
 };
 
 NAMESPACE_END(csci3081);
 
-#endif  // SRC_BRAITENBERG_VEHICLE_FACTORY_H_
+#endif  // PROJECT_SRC_BRAITENBERG_VEHICLE_FACTORY_H_

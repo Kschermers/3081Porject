@@ -4,8 +4,8 @@
  * @copyright 2017 3081 Staff, All rights reserved.
  */
 
-#ifndef SRC_WHEEL_VELOCITY_H_
-#define SRC_WHEEL_VELOCITY_H_
+#ifndef PROJECT_SRC_WHEEL_VELOCITY_H_
+#define PROJECT_SRC_WHEEL_VELOCITY_H_
 
 /*******************************************************************************
  * Includes
@@ -71,4 +71,4 @@ struct WheelVelocity {
 
 NAMESPACE_END(csci3081);
 
-#endif /* SRC_WHEEL_VELOCITY_H_ */
+#endif /* PROJECT_SRC_WHEEL_VELOCITY_H_ */
