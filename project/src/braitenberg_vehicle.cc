@@ -134,7 +134,7 @@ void BraitenbergVehicle::Update() {
 
       agBev.getWheelVelocity(
         get_sensor_reading_right(closest_light_entity_),
-        get_sensor_reading_left(closest_light_entity_),
+        get_sensor_rea  ding_left(closest_light_entity_),
         defaultSpeed_,
         light_for_switch);
         break;
@@ -177,7 +177,10 @@ void BraitenbergVehicle::Update() {
         break;
 
     case kAggressive:
-
+/**
+  * @brief
+  *
+  */
       agBev.getWheelVelocity(
         get_sensor_reading_right(closest_food_entity_),
         get_sensor_reading_left(closest_food_entity_),

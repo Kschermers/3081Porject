@@ -31,7 +31,9 @@ NAMESPACE_BEGIN(csci3081);
 /*******************************************************************************
  * Class Definitions
  ******************************************************************************/
-/* @brief Entity class to represent a Braitenberg Vehicle
+
+/**
+ * @brief Entity class to represent a Braitenberg Vehicle
  *
  * A braitenberg vehicle is a simple machine that is used to show how simple
  * concepts (in this case wiring) can give way to complex looking behavior. In
@@ -62,12 +64,34 @@ class BraitenbergVehicle : public ArenaMobileEntity, public Subject {
    */
   void TimestepUpdate(unsigned int dt) override;
 
+  /**
+  * @brief Update method for BraitenbergVehicles that handles calculating wheel
+  * velocities based on behaviors and for each entity type. Also sets color of
+  * BV based on currently active behaviors. Handles starvation functionality as
+  * well.
+  *
+  */
   void Update() override;
 
-  void SubscribeTo(Observer* o) override;
+  /**
+  * @brief Sets the BV to be the currently observed BV so its wheel velocities
+  * can be viewed in the GAV
+  *
+  * @param o the Observer a.k.a the GAV
+  */
+  void SubscribeTo(Observer* o) overri  de;
 
+  /**
+  * @brief remove the BV from being viewed by the Observer
+  *
+  */fully i
   void UnsubscribeTo() override;
 
+  /**
+  * @brief uses Observers update method to send the necessary observed info,
+  * in this case wheel velocities, to the Observer
+  *
+  */
   void NotifyObserver() override;
 
   /**
@@ -76,11 +100,16 @@ class BraitenbergVehicle : public ArenaMobileEntity, public Subject {
   void HandleCollision(EntityType ent_type,
                        ArenaEntity * object = NULL) override;
 
+  /**
+  * @brief If sensors sense an entity, let the BV know and react accordingly
+  *
+  */
   void SenseEntity(const ArenaEntity& entity);
 
   std::string get_name() const override;
 
   std::vector<Pose> get_light_sensors_const() const;
+  // productt of all wheel velocities that act upon a BV
 
   std::vector<Pose> get_light_sensors();
 
@@ -107,17 +136,29 @@ class BraitenbergVehicle : public ArenaMobileEntity, public Subject {
   static int count;
 
  private:
+  // counter to track starvation
   int starving_count_;
+
   std::vector<Pose> light_sensors_;
   MotionBehaviorDifferential * motion_behavior_{nullptr};
+
+  // Pointer to the Observer for observer pattern implementation
   Observer* observer_;
+
+  // product of all wheel velocities that act upon a BV
   WheelVelocity wheel_velocity_;
+
+  // Behaviors for each sensor
   Behavior light_behavior_;
   Behavior food_behavior_;
   Behavior bv_behavior_;
+
+  // Entities for sensing by BV
   const ArenaEntity* closest_light_entity_;
   const ArenaEntity* closest_food_entity_;
   const ArenaEntity* closest_bv_entity_;
+
+  // Wheel velocity for each sensor
   WheelVelocity* light_wheel_velocity;
   WheelVelocity* food_wheel_velocity;
   WheelVelocity* bv_wheel_velocity;

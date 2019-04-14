@@ -71,6 +71,10 @@ class Arena {
    */
   void AdvanceTime(double dt);
 
+  /**
+  * @brief Add entites into the arena
+  * @param entity The entity to be added in
+  */
   void AddEntity(ArenaEntity* entity);
 
   /**

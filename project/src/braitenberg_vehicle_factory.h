@@ -23,7 +23,8 @@ NAMESPACE_BEGIN(csci3081);
  * Class Definitions
  ******************************************************************************/
 /**
- * @brief BraitenbergVehicleFactory factory that creates Braitenberg Vehicle objects
+ * @brief BraitenbergVehicleFactory factory that creates
+ * Braitenberg Vehicle objects
  */
 class BraitenbergVehicleFactory : public ArenaEntityFactory {
  public:
@@ -46,7 +47,8 @@ class BraitenbergVehicleFactory : public ArenaEntityFactory {
   ~BraitenbergVehicleFactory();
 
 /**
- * @brief create method inherited from arena_entity_factory that creates BraitenbergVehicle objects
+ * @brief create method inherited from arena_entity_factory that
+ * creates BraitenbergVehicle objects
  */
   ArenaEntity* create(const json_object& entity_config) override;
 };
