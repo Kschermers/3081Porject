@@ -1,6 +1,6 @@
 ### Feedback for Proj 02
 
-Run on April 11, 11:51:26 AM.
+Run on April 14, 14:48:21 PM.
 
 
 ***Note: This is just the basic feedback.  The full feedback is run daily as a batch process (click link below)***
@@ -47,7 +47,7 @@ Commits found=50
 
 8ff74716127fe44df4f1e5bbc7ed8ac04e0c5ef8	refs/heads/fix/02-robot-collision-error
 
-5f878feed1db0417ef2cb5e02c1cecb3bbe7314b	refs/heads/master
+dab61ca269a87fc16d014e8b6f6dfc571641a6ef	refs/heads/master
 
 40ba70ffd31a9639d7e0192c259788aef403ae41	refs/heads/pre-release/iteration1
 
@@ -68,7 +68,9 @@ fc9f4cd39fb0c68686fcf8b79ce1359abe7fdd06	refs/heads/test/factory-pattern-tests
 
 + Pass: Configuring GHI
 
-+ Pass: Run ghi for total number of open issues in Github repo (Found: 1)
++ Pass: Run ghi for total number of open issues in Github repo (Found: 2)
+
+[OPEN issue #3] :  Predators not implemented [enhancement]
 
 [OPEN issue #2] :  Json files not properly loading 
 
