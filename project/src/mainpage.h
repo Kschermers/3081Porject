@@ -29,6 +29,10 @@
    * other entities in the Arena. This link explains the motivation
    * behind BVs well:
    * https://academics.skidmore.edu/wikis/vehicles/images/Pfeifer1996.pdf
+   *
+   * To see how this is implemented in the actual project look at the Update()
+   * method of the BraitenbergVehicle class here (lines 105-320):
+   * https://github.umn.edu/umn-csci-3081-S19/repo-scher528/blob/master/project/src/braitenberg_vehicle.cc
 
    * The controller is the Controller class, which ties all these together and
    * uses JSON scene files to generate different scenes with different entities
