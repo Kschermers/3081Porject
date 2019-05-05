@@ -79,12 +79,12 @@ class BraitenbergVehicle : public ArenaMobileEntity, public Subject {
   *
   * @param o the Observer a.k.a the GAV
   */
-  void SubscribeTo(Observer* o) overri  de;
+  void SubscribeTo(Observer* o) override;
 
   /**
   * @brief remove the BV from being viewed by the Observer
   *
-  */fully i
+  */
   void UnsubscribeTo() override;
 
   /**
