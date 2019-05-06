@@ -10,18 +10,36 @@
 /*! \mainpage CSCI3081 Project Documentation Landing Page
 
 * \section intro Introduction
-* The objective of the project is to implement feature extensions and structural redesigns to the pre-existing code base, written in C++, through a series of iterations, each with a list of objectives to achieve by the end of each, similar to an agile development methodology. 
+* This project is a BraitenbergVehicle Simulation. The objective of the project is to implement feature extensions and structural redesigns to the pre-existing code base, written in C++, through a series of iterations, each with a list of objectives to achieve by the end of each, similar to an agile development methodology. 
 
 * \subsection mvc Model-View-Controller 
 * The project is loosely based on the Model-View-Controller design pattern. There are three types of models for this program; BraitenbergVehicle, Food, and Light. These exist in an Arena, which handles their interactions.
 
-* The viewer is the GraphicsArenViewer, which utilizes OpenGL to draw all the models and allows the user to view their interactions and select different parameters that modify certain models behaviors. These behaviors are defined by five possibilities; Love, Coward, Aggressive, Explore, and None. They effect how  * Braitenberg Vehicles interact when they encounter other entities in the Arena. This link explains the motivation behind BVs well: https://academics.skidmore.edu/wikis/vehicles/images/Pfeifer1996.pdf
+* The viewer is the GraphicsArenaViewer, which utilizes OpenGL to draw all the models and allows the user to view their interactions and select different parameters that modify certain models behaviors. These behaviors are defined by five possibilities; Love, Coward, Aggressive, Explore, and None. They effect how  * Braitenberg Vehicles interact when they encounter other entities in the Arena. This link explains the motivation behind BVs well: https://academics.skidmore.edu/wikis/vehicles/images/Pfeifer1996.pdf
 
 * To see how this is implemented in the actual project look at the Update() method of the BraitenbergVehicle class here (lines 105-320):  https://github.umn.edu/umn-csci-3081-S19/repo-scher528/blob/master/project/src/braitenberg_vehicle.cc
 
 * The controller is the Controller class, which ties all these together and uses JSON scene files to generate different scenes with different entities to see our interactions take place.
 
-* \subsection personnel Personnel Note
+* \subsection classes Primary Classes
+* The primary classes to consider when viewing this project are:
+* <ul>
+* <li> GraphicsArenaViewer
+* <li> Arena
+* <li> Controller
+* <li> ArenaEntity
+* </ul>
+
+* \subsection patterns Design Patterns
+* We had to implement a series of design patterns throughout this project. These patterns included:
+* <ul>
+* <li> Factory Pattern - use factories for contruction of entities instead of entity classes themselves
+* <li> Strategy Pattern - create behavior classes for BVs that manipulate their WheelVelocity
+* <li> Observer Pattern - allow viewing of real-time WheelVelocity of BVs corresponding to each sensor
+* <li> Decorator Pattern - Predators can decorate themselves as other entities as a 'disguise'
+* <\ul>
+
+* \subsection personal Personal Notes
 * The most important thing I had to do to understand the project before I began to work on it was understand the structure of the existing code base. One of the very first requirements for the project was to generate a UML diagram for the project. We had to write up the structures for all of the classes and draw a 
 * complete diagram of how they are all used within the project. This dramatically increased my comprehension of the project compared to a long list of files. Understanding which files were used where and writing out all the method names and variables allowed to see the project in a ‘collapsed view’ where the most 
 * important information was there, but I did not have to scroll through all the code of the methods that can make it harder to comprehend.
