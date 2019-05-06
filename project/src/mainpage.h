@@ -37,7 +37,7 @@
 * <li> Strategy Pattern - create behavior classes for BVs that manipulate their WheelVelocity
 * <li> Observer Pattern - allow viewing of real-time WheelVelocity of BVs corresponding to each sensor
 * <li> Decorator Pattern - Predators can decorate themselves as other entities as a 'disguise'
-* <\ul>
+* </ul>
 
 * \subsection personal Personal Notes
 * The most important thing I had to do to understand the project before I began to work on it was understand the structure of the existing code base. One of the very first requirements for the project was to generate a UML diagram for the project. We had to write up the structures for all of the classes and draw a 
