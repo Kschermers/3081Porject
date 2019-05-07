@@ -2,7 +2,7 @@
 
 #### Total score: _0_ / _12_
 
-Run on May 07, 05:56:35 AM.
+Run on May 07, 14:23:30 PM.
 
 
 #### Prelim2 Release Branch
@@ -56,7 +56,7 @@ Run on May 07, 05:56:35 AM.
 
 +  _0_ / _6_ : Fail: Velocity boxes? (1pt for each)
     fails to run the test executable: InteractiveTest.ArenaViewerTest.
-arg  1 = scenes/2_lights_4_bots.json
+arg  1 = scenes/2l_4b_with_robot_behavior.json
 Note: Google Test filter = InteractiveTest.ArenaViewerTest
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
@@ -70,7 +70,7 @@ return code: -11
 
 +  _0_ / _3_ : Fail: Ability to choose different BVs?
     fails to run the test executable: InteractiveTest.ArenaViewerTest.
-arg  1 = scenes/2_lights_4_bots.json
+arg  1 = scenes/2l_4b_with_robot_behavior.json
 Note: Google Test filter = InteractiveTest.ArenaViewerTest
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
@@ -85,9 +85,23 @@ return code: -11
 
 #### SegFault Test
 
-+  _0_ / _3_ : Fail: Did the program run without segfaults? (y/n)
++  _0_ / _1_ : Fail: Did the program run without supplying robot_behavior? (y/n)
     fails to run the test executable: InteractiveTest.ArenaViewerTest.
-arg  1 = scenes/2_lights_4_bots.json
+arg  1 = scenes/2l_4b.json
+Note: Google Test filter = InteractiveTest.ArenaViewerTest
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from InteractiveTest
+[ RUN      ] InteractiveTest.ArenaViewerTest
+Robot Simulation
+
+return code: -11
+
+
+
++  _0_ / _2_ : Fail: Did the program run without segfaults? (y/n)
+    fails to run the test executable: InteractiveTest.ArenaViewerTest.
+arg  1 = scenes/2l_4b_with_robot_behavior.json
 Note: Google Test filter = InteractiveTest.ArenaViewerTest
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
