@@ -2,13 +2,17 @@
 
 #### Total score: _6.93_ / _44.5_
 
-Run on May 07, 14:57:56 PM.
+Run on May 07, 15:18:53 PM.
 
 
 #### Partial Combined Scores (44.5% of Iteration 2 Grade)
 
 
 For full grade breakdown please refer to [Assessment Weighting](https://github.umn.edu/umn-csci-3081-S19/csci3081-shared-upstream/blob/support-code/project/docs/Iteration2Requirements.md#assessment-weighting) in the requirement 2 document.
+
++ Pass: Setup grading environment.
+
+
 
 
 #### Iteration 2 - Partial Prelim 2 (6%)
