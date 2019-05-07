@@ -1,8 +1,8 @@
 ### Partial Assessment for Project Iteration 02 - Prelim-2 (Graded By: Dan Orban)
 
-#### Total score: _0_ / _12_
+#### Total score: _0_ / _13_
 
-Run on May 07, 14:23:30 PM.
+Run on May 07, 16:08:26 PM.
 
 
 #### Prelim2 Release Branch
@@ -99,7 +99,7 @@ return code: -11
 
 
 
-+  _0_ / _2_ : Fail: Did the program run without segfaults? (y/n)
++  _0_ / _3_ : Fail: Did the program run without segfaults? (y/n)
     fails to run the test executable: InteractiveTest.ArenaViewerTest.
 arg  1 = scenes/2l_4b_with_robot_behavior.json
 Note: Google Test filter = InteractiveTest.ArenaViewerTest
@@ -113,5 +113,5 @@ return code: -11
 
 
 
-#### Total score: _0_ / _12_
+#### Total score: _0_ / _13_
 
