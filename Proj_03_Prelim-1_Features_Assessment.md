@@ -2,7 +2,7 @@
 
 #### Total score: _0_ / _8_
 
-Run on May 10, 14:53:18 PM.
+Run on May 10, 17:10:13 PM.
 
 
 #### Prelim1 Release Branch
@@ -27,6 +27,10 @@ Run on May 10, 14:53:18 PM.
 
 
 + Pass: Change into directory "project".
+
++ Pass: Checkout regrade branch.
+
+
 
 + Pass: Change into directory "tests-i".
 
@@ -97,39 +101,53 @@ make: *** [../build/obj/tests-i/graphics_arena_viewer.o] Error 1
 
 #### Functionality- Decoration Alone
 
-+  _0_ / _1_ : Skip: Decorates Once - Gets through first decoration without a seg fault
++  _0_ / _1_ : Skip: Decorates Once - Gets through first decoration without a seg fault (scenes/pred_decorate_1.json)
 
   This test was not run because of an earlier failing test.
 
-+  _0_ / _1_ : Skip: Decorates Twice - Gets through second decoration without a seg fault
++  _0_ / _1_ : Skip: Decorates Twice - Gets through second decoration without a seg fault (scenes/pred_decorate_2.json)
 
   This test was not run because of an earlier failing test.
 
-+  _0_ / _1_ : Skip: Decorates Thrice - Gets through third decoration without a seg fault
++  _0_ / _1_ : Skip: Decorates Thrice - Gets through third decoration without a seg fault (scenes/pred_decorate_3.json)
 
   This test was not run because of an earlier failing test.
 
-+  _0_ / _1_ : Skip: Starves - Dies after 3rd decoration
++  _0_ / _1_ : Skip: Starves - Dies after 3rd decoration (scenes/pred_starve.json)
 
   This test was not run because of an earlier failing test.
 
 
 #### Functionality - Consuming BV
 
-+  _0_ / _1_ : Skip: Movement Towards BV - Does it move towards BV as a Predator or Decorated as BV?
++  _0_ / _1_ : Skip: Movement Towards BV - Does it move towards BV as a Predator or Decorated as BV? (scenes/pred_move_towards_bv.json)
 
   This test was not run because of an earlier failing test.
 
-+  _0_ / _1_ : Skip: Undecorates - Does it undecorate after consuming BV?
++  _0_ / _1_ : Skip: Undecorates - Does it undecorate after consuming BV? (scenes/pred_undecorates.json)
 
   This test was not run because of an earlier failing test.
 
 
 #### Functionality - Decorator Behavior
 
-+  _0_ / _2_ : Skip: Moves as a BV when decorated as BV.
++  _0_ / _2_ : Skip: Moves as a BV when decorated as BV. (scenes/pred_bv_decorator.json)
 
   This test was not run because of an earlier failing test.
+
+
+#### Regrade Process
+
+You may create json config files that prove that your functionality works in the "regrade/iteration3-prelim1" branch under the "project/scenes" folder.  Use the names for the scene files above.  Submit a new regrade request and we will re-run with your new files and a description of how to test.
+
+
+#### Possible Areas of Failure
+
+ * Cannot turn off mobility of entity (i.e. cannot call entity->set_is_moving(...)).
+ * Program expects a BV to exist.
+ * The BV must be the first entity in the config.
+ * Simulation timing is handled outside of the arena_->AdvanceTime(1.0).
+ * Segfault when a predator consumes.
 
 #### Total score: _0_ / _8_
 
